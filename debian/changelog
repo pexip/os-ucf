@@ -1,3 +1,9 @@
+ucf (3.0025+nmu2ubuntu1pexip1) pexip; urgency=low
+
+  * Prepare Pexip packaging
+
+ -- John-Mark Bell <jmb@pexip.com>  Wed, 25 Dec 2013 05:00:21 +0000
+
 ucf (3.0025+nmu2ubuntu1) oneiric; urgency=low
 
   * Merge from debian unstable.  Remaining changes:

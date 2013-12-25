@@ -3,10 +3,12 @@ VCS-Git: git://git.debian.org/~srivasta/debian/ucf.git
 VCS-Browser: http://git.debian.org/?p=users/srivasta/debian/ucf.git
 Section: utils
 Priority: standard
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
 Build-Depends-Indep: po-debconf, gettext
 Standards-Version: 3.8.3.0
+XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
 
 Package: ucf
 Architecture: all
