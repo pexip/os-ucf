@@ -1,4 +1,4 @@
-# translation of ucf_3.0023_de.po to German
+# translation of ucf debconf templates to German
 #
 #    Translators, if you are not familiar with the PO format, gettext
 #    documentation is worth reading, especially sections dedicated to
@@ -11,20 +11,19 @@
 #    Developers do not need to manually edit POT or PO files.
 #
 # Erik Schanze <eriks@debian.org>, 2004-2009.
+# Holger Wansing <linux@wansing-online.de>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: ucf_3.0023_de\n"
+"Project-Id-Version: ucf 3.0028\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2009-10-13 08:14-0500\n"
-"PO-Revision-Date: 2009-10-30 22:16+0100\n"
-"Last-Translator: Erik Schanze <eriks@debian.org>\n"
+"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"PO-Revision-Date: 2014-05-22 20:42+0200\n"
+"Last-Translator: Holger Wansing <linux@wansing-online.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #. Type: title
 #. Description
@@ -39,7 +38,7 @@ msgstr "Geänderte Konfigurationsdatei"
 #. Choices
 #: ../templates:3001 ../templates:4001
 msgid "install the package maintainer's version"
-msgstr "Version des Paket-Betreuers installieren"
+msgstr "Version des Paketbetreuers installieren"
 
 #. Type: select
 #. Choices
@@ -48,7 +47,7 @@ msgstr "Version des Paket-Betreuers installieren"
 #. Choices
 #: ../templates:3001 ../templates:4001
 msgid "keep the local version currently installed"
-msgstr "aktuell installierte Version behalten"
+msgstr "aktuell lokal installierte Version beibehalten"
 
 #. Type: select
 #. Choices
@@ -73,7 +72,7 @@ msgstr "Unterschiede zwischen den Versionen nebeneinander anzeigen"
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
 msgid "show a 3-way difference between available versions"
-msgstr "3-Wege-Differenz verfügbarer Versionen der Datei anzeigen"
+msgstr "3-Wege-Unterschiede verfügbarer Versionen anzeigen"
 
 #. Type: select
 #. Choices
@@ -106,11 +105,11 @@ msgstr ""
 #. Description
 #: ../templates:3002 ../templates:4002
 msgid ""
-"A new version of configuration file ${FILE} is available, but the version "
-"installed currently has been locally modified."
+"A new version (${NEW}) of configuration file ${FILE} is available, but the "
+"version installed currently has been locally modified."
 msgstr ""
-"Eine neue Version der Konfigurationsdatei ${FILE} ist verfügbar, aber die "
-"installierte Version wurde verändert."
+"Eine neue Version (${NEW}) der Konfigurationsdatei ${FILE} ist verfügbar, "
+"aber die installierte Version wurde verändert."
 
 #. Type: note
 #. Description
@@ -122,7 +121,7 @@ msgstr "Unterschiede zwischen den Versionen zeilenweise anzeigen"
 #. Description
 #: ../templates:6001
 msgid "Conflicts found in three-way merge"
-msgstr "Bei der 3-Wege-Vereinigung wurden Konflikte festgestellt"
+msgstr "Konflikte bei der 3-Wege-Vereinigung"
 
 #. Type: error
 #. Description
@@ -131,8 +130,8 @@ msgid ""
 "Conflicts found during three-way merge! Please edit `${dest_file}' and sort "
 "them out manually."
 msgstr ""
-"Es wurden Konflikte bei der 3-Wege-Vereinigung festgestellt! Bitte beheben "
-"Sie diese selbst in der Datei »${dest_file}«."
+"Es wurden Konflikte bei der 3-Wege-Vereinigung festgestellt! Bitte passen "
+"Sie die Datei »${dest_file}« selbst an, um die Konflikte zu beseitigen."
 
 #. Type: error
 #. Description
@@ -141,5 +140,6 @@ msgid ""
 "The file `${dest_file}.${ERR_SUFFIX}' has a record of the failed merge of "
 "the configuration file."
 msgstr ""
-"Die fehlgeschlagene Vereinigung der Konfigurationsdatei wurde in der Datei "
-"»${dest_file}.${ERR_SUFFIX}« abgespeichert."
+"Die Datei »${dest_file}.${ERR_SUFFIX}« enthält eine Aufzeichnung der "
+"fehlgeschlagenen Vereinigung der Konfigurationsdateien."
+

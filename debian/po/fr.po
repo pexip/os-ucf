@@ -5,20 +5,20 @@
 # Translators:
 #
 # Eric Madesclair <eric-m@wanadoo.fr>, 2007.
-# Christian Perrier <bubulle@debian.org>, 2009.
+# Christian Perrier <bubulle@debian.org>, 2009, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2009-10-13 08:14-0500\n"
-"PO-Revision-Date: 2009-10-13 18:06+0200\n"
+"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"PO-Revision-Date: 2014-05-07 13:44+0200\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Type: title
@@ -101,11 +101,11 @@ msgstr ""
 #. Description
 #: ../templates:3002 ../templates:4002
 msgid ""
-"A new version of configuration file ${FILE} is available, but the version "
-"installed currently has been locally modified."
+"A new version (${NEW}) of configuration file ${FILE} is available, but the "
+"version installed currently has been locally modified."
 msgstr ""
-"Une nouvelle version du fichier de configuration ${FILE} est disponible mais "
-"la version actuellement utilisée a été modifiée localement."
+"Une nouvelle version (${NEW}) du fichier de configuration ${FILE} est "
+"disponible mais la version actuellement utilisée a été modifiée localement."
 
 #. Type: note
 #. Description
@@ -138,6 +138,13 @@ msgid ""
 msgstr ""
 "Le fichier « ${dest_file}.${ERR_SUFFIX} » contient une trace de la fusion "
 "qui a échoué."
+
+#~ msgid ""
+#~ "A new version of configuration file ${FILE} is available, but the version "
+#~ "installed currently has been locally modified."
+#~ msgstr ""
+#~ "Une nouvelle version du fichier de configuration ${FILE} est disponible "
+#~ "mais la version actuellement utilisée a été modifiée localement."
 
 #, fuzzy
 #~| msgid "What would you like to do about ${BASENAME}?"

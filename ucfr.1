@@ -1,6 +1,6 @@
-.\"                             -*- Mode: Nroff -*- 
-.\" ucfr.1 --- 
-.\" Author           : Manoj Srivastava ( srivasta@glaurung.internal.golden-gryphon.com ) 
+.\"                             -*- Mode: Nroff -*-
+.\" ucfr.1 ---
+.\" Author           : Manoj Srivastava ( srivasta@glaurung.internal.golden-gryphon.com )
 .\" Created On       : Tue Apr 11 13:58:23 2006
 .\" Created On Node  : glaurung.internal.golden-gryphon.com
 .\" Last Modified By : Manoj Srivastava
@@ -8,9 +8,9 @@
 .\" Last Machine Used: glaurung.internal.golden-gryphon.com
 .\" Update Count     : 14
 .\" Status           : Unknown, Use with caution!
-.\" HISTORY          : 
-.\" Description      : 
-.\" 
+.\" HISTORY          :
+.\" Description      :
+.\"
 .\" arch-tag: f2f569c2-5b54-4e5d-83f0-d2a39e103ecb
 .\"
 .\" Copyright (c) 2006 Manoj Srivastava <srivasta@debian.org>
@@ -44,25 +44,30 @@ ucfr \- Update Configuration File Registry:  associate packages with configurati
 .I <Package>
 .I <Path to configuration file>
 .SH DESCRIPTION
-Where 
+Where
 .I Package
 is the package associated with the configuration file (and, in some
-sense, its owner), and 
+sense, its owner), and
 .I Path to configuration file
 is the full path to the location (usually under /etc) where the
-configuration file lives, and is potentially modified by the end user.
+configuration file lives, and is potentially modified by the end
+user. Please note that usually this means that we register actual
+files, and not symbolic links to files.
+.B ucfr
+will follow symbolic links and register the real file,  and not the
+symbolic link.
 .PP
 This script maintains an association between configuration files and
 packages, and is meant to help provide facilities that
 .I dpkg
 provides conffiles for configuration files and not shipped in a
-.B Debian 
+.B Debian
 package, but handled by the postinst by
 .I ucf
 instead. This script is idempotent, associating a package to a file
 multiple times is not an error.  It is normally an error to try to
 associate a file which is already associated with another package, but
-this can be over ridden by using the 
+this can be over ridden by using the
 .I \-\-force
 option.
 .SH OPTIONS
@@ -76,7 +81,7 @@ invoked, but take no action.
 .TP
 .B "\-d [n], \-\-debug [n]"
 Set the debug level to the (optional) level
-.I n 
+.I n
 (n defaults to 1). This turns on copious debugging information.
 .TP
 .B "\-p, \-\-purge"
@@ -106,24 +111,24 @@ association between the file and some other package in the registry.
 .TP
 .B "\-\-state\-dir /path/to/dir"
 Set the state directory to /path/to/dir instead of the default
-.I /var/lib/ucf. 
+.I /var/lib/ucf.
 Used mostly for testing.
 .SH USAGE
 The most common case usage is pretty simple: a single line invocation
 in the postinst on configure, and another single line in the postrm to
-tell 
+tell
 .B ucfr
-to forget about the association with the configuration file on purge 
+to forget about the association with the configuration file on purge
 (using the  \-\-purge option) is all that is needed (assuming ucfr is
 still on the system).
 .SH FILES
 .I /var/lib/ucf/registry,
 and
 .I /var/lib/ucf/registry.X,
-where 
+where
 .I X
 is a small integer, where previous versions of the registry are
-stored. 
+stored.
 .PP
 .I /etc/ucf.conf
 .SH EXAMPLES
@@ -137,7 +142,7 @@ needed:
 .B ucfr
 .I foo
 .I /etc/foo.conf
-.PP 
+.PP
 On purge, one should tell ucf to forget about the file (see detailed
 examples in /usr/share/doc/examples):
 .PP

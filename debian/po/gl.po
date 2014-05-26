@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2009-10-13 08:14-0500\n"
+"POT-Creation-Date: 2014-05-07 01:28-0700\n"
 "PO-Revision-Date: 2009-11-05 20:38+0100\n"
 "Last-Translator: Marce Villarino <mvillarino@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -96,9 +96,13 @@ msgstr "Que desexa facer co ficheiro de configuración modificado ${BASENAME}?"
 #. Type: select
 #. Description
 #: ../templates:3002 ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version of configuration file ${FILE} is available, but the version "
+#| "installed currently has been locally modified."
 msgid ""
-"A new version of configuration file ${FILE} is available, but the version "
-"installed currently has been locally modified."
+"A new version (${NEW}) of configuration file ${FILE} is available, but the "
+"version installed currently has been locally modified."
 msgstr ""
 "Hai dispoñíbel unha nova versión do ficheiro de configuración ${FILE}, pero "
 "a versión actualmente instalada ten modificacións locais."
@@ -134,6 +138,13 @@ msgid ""
 msgstr ""
 "O ficheiro «${dest_file}.{ERR_SUFFIX}» contén un rexistro da fusión "
 "fracasada do ficheiro de configuración."
+
+#~ msgid ""
+#~ "A new version of configuration file ${FILE} is available, but the version "
+#~ "installed currently has been locally modified."
+#~ msgstr ""
+#~ "Hai dispoñíbel unha nova versión do ficheiro de configuración ${FILE}, "
+#~ "pero a versión actualmente instalada ten modificacións locais."
 
 #, fuzzy
 #~| msgid "What would you like to do about ${BASENAME}?"
