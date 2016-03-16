@@ -108,16 +108,12 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:3002 ../templates:4002
-#| msgid ""
-#| "A new version of configuration file ${FILE} is available, but the version "
-#| "installed currently has been locally modified."
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
 msgstr ""
-"Dostępna jest nowa wersja (${NEW}) pliku konfiguracyjnego ${FILE}, ale obecna "
-"wersja "
-"została lokalnie zmodyfikowana."
+"Dostępna jest nowa wersja (${NEW}) pliku konfiguracyjnego ${FILE}, ale "
+"obecna wersja została lokalnie zmodyfikowana."
 
 #. Type: note
 #. Description

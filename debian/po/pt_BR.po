@@ -97,9 +97,6 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:3002 ../templates:4002
-#| msgid ""
-#| "A new version of configuration file ${FILE} is available, but the version "
-#| "installed currently has been locally modified."
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."

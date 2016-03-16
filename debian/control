@@ -5,7 +5,7 @@ Section: utils
 Priority: standard
 Maintainer: Manoj Srivastava <srivasta@debian.org>
 Build-Depends-Indep: po-debconf, gettext, debhelper (>= 9.0.0)
-Standards-Version: 3.9.5
+Standards-Version: 3.9.7
 
 Package: ucf
 Architecture: all
