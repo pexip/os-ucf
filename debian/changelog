@@ -1,16 +1,136 @@
-ucf (3.0025+nmu2ubuntu1pexip1) pexip; urgency=low
+ucf (3.0030pexip1) pexip; urgency=low
 
-  * Prepare Pexip packaging
+  * Migrate to Jessie
 
- -- John-Mark Bell <jmb@pexip.com>  Wed, 25 Dec 2013 05:00:21 +0000
+ -- John-Mark Bell <jmb@pexip.com>  Thu, 30 Mar 2017 00:17:31 +0100
 
-ucf (3.0025+nmu2ubuntu1) oneiric; urgency=low
+ucf (3.0030) unstable; urgency=low
 
-  * Merge from debian unstable.  Remaining changes:
-    - Use dpkg-query --control-path instead of hard-coding a path to our
-      debconf templates file, for compatibility with multiarch.
+  * Updated german translations. (Closes: #748975).
+  * Bug fix: #748975: "[L10N,DE] ucf: updated german debconf translation",
+    thanks to Holger Wansing
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 04 May 2011 10:59:06 -0400
+ -- Manoj Srivastava <srivasta@debian.org>  Mon, 26 May 2014 16:16:43 -0700
+
+ucf (3.0029) unstable; urgency=medium
+
+  * When asking how to handle an upodate to a locally modified
+    configuration file, ucf does not tell the user where the new version
+    of the configuration file lives. This makes it hard to take action
+    when opening a new shell. This commit updates the debconf templates to
+    include that information.  (Closes: #616486, #747295, #747299)
+    (Closes: #747310, #747312, #747335, #747346, #747371, #747450)
+    (Closes: #747533, #748148, #748178, #748371).
+  * ucf uses getopt(1) to process command line arguments. The debug
+    options take a an optional level. For short options, If the option has
+    an optional argument, it must be written directly after the option
+    character if present. For long options, the optional argument must be
+    written directly after the long  option  name, separated by `=', if
+    present. This is now documented in the manual page.
+  * Document that ucf --purge can be used to make ucf forget about the
+    state of the previous decisions for a configuration file, so that when
+    the package is updated or reinstalled, ucf will ask again about
+    disposition,  (Closes: #566277).
+  * Bug fix #616486: "The start a shell option gives user no clue about
+    the location of maintainer version of config file", thanks to Robert
+    Luberda
+  * Bug fix #747295: "[INTL:sv] Swedish strings for ucf debconf", thanks
+    to Martin Bagge
+  * Bug fix #747299: "[l10n:eu] ucf 3.0028: updated Basque translation",
+    thanks to Iñaki Larrañaga Murgoitio
+  * Bug fix #747310: "[INTL:fr] French debconf templates translation
+    update", thanks to Christian Perrier
+  * Bug fix #747312: "[INTL:pt] Portuguese translation for debconf
+    messages (update)", thanks to Américo Monteiro
+  * Bug fix #747335: "[INTL:ru] Russian debconf templates translation
+    update", thanks to Yuri Kozlov
+  * Bug fix #747346: "[INTL:fi] Updated Finnish translation of the debconf
+    templates", thanks to Esko Arajärvivim Portuguese
+  * Bug fix #747371: "[INTL:ja] update Japanese debconf translation",
+    thanks to Kenshi Muto.
+  * Bug fix #747450: "[INTL:da] Danish translation of the debconf
+    templates ucf", thanks to Joe Dalton
+  * Bug fix #747533: "[INTL:sk] Slovak po-debconf translation", thanks to
+    Slavko
+  * Bug fix #566277: "no renewed question b/c changed config files",
+    thanks to arne anka
+  * Bug fix #748148: "[INTL:pl] Updated Polish debconf translation",
+    thanks to Michał Kułach
+  * Bug fix #748178: "[INTL:pt_BR] Brazilian Portuguese debconf templates
+    translation", thanks to Adriano Rafael Gomes
+  * Bug fix #748371: "[l10n] Updated Czech translation of ucf debconf
+    messages", thanks to Miroslav Kure
+
+ -- Manoj Srivastava <srivasta@debian.org>  Sat, 17 May 2014 16:00:42 -0700
+
+ucf (3.0028) unstable; urgency=medium
+
+  * Ack the NMU.
+  * Bug fix: "Should not claim files differ if $newsum and $destsum are
+    identical", thanks to Frank Küster                 (Closes: #633391).
+  * Differentiate between the file being registered in the registry and
+    the RE used to look it up. Account for the fact that the file being
+    registered might be a s symlink, so follow links for the
+    registry. Since registering symlinks is broken already, and we should
+    be registering files and not symlinks anyway. ucf already did follow
+    the symbolic links, it is only ucfr that needed changing.
+  * Bug fix: "database corruption if ucfr is used on symlinks instead of
+    files", thanks to Andreas Beckmann (Closes: #724457).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Sat, 26 Apr 2014 15:45:35 -0700
+
+ucf (3.0027+nmu1) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Non-maintainer upload.
+  * Set urgency to medium for RC bugfix.
+  * Fix VCS-Git URL to not point to an outdated repository.
+
+  [ Mathieu Parent ]
+  * Put the Cwd at the right place.  (Closes: #711055)
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Jul 2013 02:59:15 +0200
+
+ucf (3.0027) unstable; urgency=low
+
+  * Use dpkg-query --control-path instead of hard-coding a path to our
+    debconf templates file, for compatibility with multiarch. The patch
+    had apparently gotten reverted somewhere.
+  * Now that wheezy has been released, moving to unstable.
+
+ -- Manoj Srivastava <srivasta@debian.org>  Sat, 18 May 2013 16:26:58 -0700
+
+ucf (3.0026) experimental; urgency=low
+
+  * Acknowledge NMUs. Thanks, bubulle.
+  * Bug fix: "starting a new shell fails from console", thanks to EmaRsk
+    (Closes: #574266). The fix was provided by Aaron Hope <asbestos@xemed.com>
+  * Bug fix: "$PAGER ignored", thanks to David Fries (Closes: #596452).
+  * Bug fix: "ucf fails when VERBOSE is set to 1 in /etc/ucf.conf", thanks
+    to Aljoscha Lautenbach (Closes: #577127). The same bug was also
+    repprted as  "--verbose option changes return code", thanks to Frank
+    Küster (Closes: #631231).
+  * Bug fix: "Small typo in ucf help", thanks to Tomasz Muras
+    (Closes: #577582).
+  * Bug fix: "ucfr exits successfully despite syntax error", thanks to
+    Sven Joachim (Closes: #573455).
+  * Bug fix: "ucfr should collapse duplicate slashes in paths", thanks to
+    Olivier Berger (Closes: #638187).
+  * Bug fix: "should be tagged Multi-Arch: foreign", thanks to
+    hriase1@post-ist-da.de (Closes: #670711).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Wed, 24 Apr 2013 03:10:05 -0700
+
+ucf (3.0025+nmu3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * No longer hardcode debconf templates file location
+    Closes: #615931
+  * Fix pending l10n issues. Debconf translations:
+    - Slovak (Slavko).  Closes: #639443
+    - Polish (Michał Kułach).  Closes: #661480
+
+ -- Christian Perrier <bubulle@debian.org>  Thu, 05 Apr 2012 08:25:42 +0200
 
 ucf (3.0025+nmu2) unstable; urgency=low
 
@@ -20,13 +140,6 @@ ucf (3.0025+nmu2) unstable; urgency=low
     - Dutch; (Jeroen Schot).  Closes: #622789
 
  -- Christian Perrier <bubulle@debian.org>  Fri, 15 Apr 2011 08:27:12 +0200
-
-ucf (3.0025+nmu1ubuntu1) natty; urgency=low
-
-  * Use dpkg-query --control-path instead of hard-coding a path to our
-    debconf templates file, for compatibility with multiarch.
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Mon, 28 Feb 2011 21:48:32 -0800
 
 ucf (3.0025+nmu1) unstable; urgency=low
 
@@ -110,7 +223,7 @@ ucf (3.0021) unstable; urgency=low
     which could cascade in a upgrade. However, trapping the error, and
     showing it via debconf, and then returning to the ucf debconf menu
     allows users to resolve this issue as they please. This patch
-    implements that. 
+    implements that.
     Bug fix: "three-way-merge errors cause upgrade pains", thanks to Steve
     Langasek                                               (Closes: #543593).
 
@@ -133,7 +246,7 @@ ucf (3.0019) unstable; urgency=low
 
   * Disable invalid Italian translation that collides with the translation
     for another string, thanks to Steve Langasek. This was pointed out by
-    an Ubuntu user, and the fix comes from Ubuntu. 
+    an Ubuntu user, and the fix comes from Ubuntu.
     Bug fix: "Italian translation fails to distinguish between two
     options", thanks to Steve Langasek                   (Closes: #543161).
 
@@ -200,11 +313,11 @@ ucf (3.0016) unstable; urgency=low
 ucf (3.0015) unstable; urgency=low
 
   * [e63973f]: Use which, not type -a -p
-  
+
     Although the 'type' command is used by /usr/bin/ucf, a 'type' built-in
     command cannot be used by posh. It is safer to use '/bin/which'
-    contained in debianutils. 
-  
+    contained in debianutils.
+
     Bug fix: "Shell which cannot use the type command", thanks to Jonny
     Closes: Bug#513755
 
@@ -225,7 +338,7 @@ ucf (3.0013) unstable; urgency=low
 
   * [99736cc]: Move the debconf stuff _after_ command line parsing
     If it is done earlier, the DEBCONF_OK flag is not set yet. This is
-    majorly bad.                             Closes: Bug#512905 
+    majorly bad.                             Closes: Bug#512905
     Bug fix: "ucf was run from a maintainer script that uses debconf
     [...]", thanks to Michael Prokop (Closes: #512832).
   * [67e17f1]: Load confmodule to define db_* commands even when !DEBCONF_OK
@@ -259,12 +372,12 @@ ucf (3.0012) unstable; urgency=low
     /usr/share/debconf/confmodule and loads the ucf debconf templates.
     This is a minimal change, and just moves the test of DEBCONF_OK
     earlier.  Thanks to  Robert Luberda for the report and suggested fix.
-                                                          Closes: Bug#511031 
+                                                          Closes: Bug#511031
   * [26a61b8]: Start issueing a diagnostic if ucf is forced to not use debconf
     If ucf is called without the --debconf-ok switch, and
     debconf is started, issue a diagnostic, and use old style promping
     on the command line. This is a policy violation, and soon the non-
-    debconf prompting shall be removed. 
+    debconf prompting shall be removed.
   * [3ce2104]: Rearrange code for readability, and add comment blocks
     Signed-off-by: Manoj Srivastava <srivasta@debian.org>
 
@@ -280,26 +393,26 @@ ucf (3.0011) unstable; urgency=low
     facilitate the future transition, we should all depend on
        debconf | cdebconf
     to make life in the future easier.
-    
+
     Now, as of version 3.005, ucf started using a feaure that has long been a
     part of cdebconf, but was only ported to debconf in version 1.5.19, so
     now ucf started depending on:
       debconf (>= 1.5.19) | cdebconf
     and this is where trouble beings.
-    
+
     Suppose a machine running stable has cdebconf installed. It also has an
     old version of debconf installed, say, one that is older than
     1.5.19. Since cdebconf was installed, the dependency requirements are
     fully satisfied, so debconf was not updated.
-    
+
     Now, ucf follows the instructions in debconf-devel(7) -- and that just
     uses debconf, the older version which does nothave support for the
     feature ucf needs. Boom, there goes the update.
-  
+
     This is a grave bug.
-  
+
     Bug fix: "ucf fails on db_x_loadtemplatefile", thanks to Wichert
-    Akkerman                                                     (Closes: #507043). 
+    Akkerman                                                     (Closes: #507043).
   * Bug fix: "typo in changelog.gz ucf ", thanks to  Paul Menzel (Closes: #497762).
 
  -- Manoj Srivastava <srivasta@debian.org>  Sat, 29 Nov 2008 11:43:53 -0600
@@ -360,7 +473,7 @@ ucf (3.005) unstable; urgency=low
     the patch provided in the report.                     Closes: #460868
   * Of course, this did not mean that the modified column was actually
     filled with valid values: A number of places we were not using the
-    proper accessor methods, which added to the confusion. Fixed. 
+    proper accessor methods, which added to the confusion. Fixed.
                                                           Closes: #464238
   * Add a new --debconf-template option to specify an alternate
     caller-provided debconf template for the user prompt. Heavy lifting
@@ -375,7 +488,7 @@ ucf (3.005) unstable; urgency=low
     (foo.ucf-new), tell the user about it, and abort the upgrade by
     exiting with exit 3. We still psit out an error about conflicts.
     Hopefully, this adequately resolves the bug.          Closes: #456245
-                                             
+
 
  -- Manoj Srivastava <srivasta@debian.org>  Thu, 21 Feb 2008 01:10:57 -0600
 
@@ -407,7 +520,7 @@ ucf (3.003) unstable; urgency=low
     Björn Steinbrink. For "keep current" and "threeway merge", ucf expects
     answers from debconf which differ from what is specified in the
     template master, which had been changed in the review process.  This
-    fixes that bug; which made ucf mostly useless.         (Closes: #443179). 
+    fixes that bug; which made ucf mostly useless.         (Closes: #443179).
 
  -- Manoj Srivastava <srivasta@debian.org>  Wed, 19 Sep 2007 09:58:39 -0500
 
@@ -442,7 +555,7 @@ ucf (3.002) unstable; urgency=low
     Erik Schanze                                          (Closes: #431342).
   * Bug fix: "[INTL:de] German translation for ucf (debconf)", thanks to
     Erik Schanze. I actually used th translations from the bug 431342
-                                                          (Closes: #428717). 
+                                                          (Closes: #428717).
   * Bug fix: "ucf: [INTL:vi] Vietnamese debconf templates translation
     update", thanks to Clytie Siddall                     (Closes: #429909).
   * Bug fix: "ucf: [INTL:vi] Vietnamese debconf templates translation
@@ -463,10 +576,10 @@ ucf (3.001) unstable; urgency=low
     actually the diff is  displayed on the terminal window ucf was run
     on. Until the debconf-escape utility and the escape CAPB support,
     db_subst ran into newline and line length issues. Patch from Michael
-    Vogt.                                                 (Closes: #325576). 
+    Vogt.                                                 (Closes: #325576).
   * From Michael Vogt's patch: use a debconf note for the diff. updated
     dependency of debconf to 1.4.72 (this is the version that supports the
-    "escape" capability) 
+    "escape" capability)
   * Left in the debconf-2.0 as is, since I am assuming anything that
     provides debconf-2.0 should be a drop in replacement, or that should
     be considered a bug. This is a change from Michael Vogt's patch.
@@ -476,7 +589,7 @@ ucf (3.001) unstable; urgency=low
 ucf (2.0021) unstable; urgency=low
 
   * Bug fix: "ucf: does not transfer mode changes to conffile", thanks to
-    Marc Haber.  We now use cp -pf to preserve ownership and permissions. 
+    Marc Haber.  We now use cp -pf to preserve ownership and permissions.
                                                           (Closes: #406476).
   * Bug fix: "shouldn't .ucf-dist and .ucf-old be included in example
     code?", thanks to Marc Haber                          (Closes: #418240).
@@ -696,7 +809,7 @@ ucf (2.002) unstable; urgency=low
     Siddall                                                (Closes: #323951).
   * Bug fix: "Please document that ucf may not exist when the postrm
     script is called"                                      (Closes: #326085).
-  * Bug fix: "Please include sdiff in the menu options", thanks to  Tobias      
+  * Bug fix: "Please include sdiff in the menu options", thanks to  Tobias
     Toedter                                                (Closes: #323989).
 
  -- Manoj Srivastava <srivasta@debian.org>  Tue, 20 Sep 2005 14:52:26 -0500
@@ -739,7 +852,7 @@ ucf (1.17) unstable; urgency=low
   * Bug fix: "ucf: assumes that debconf-loadtemplates is always there",
     thanks to Miles Bader                                   (Closes: #300159).
   * Added a recommendation for debconf-utils for debconf-loadtemplate (not
-    templates). 
+    templates).
 
  -- Manoj Srivastava <srivasta@debian.org>  Fri, 18 Mar 2005 18:26:01 -0600
 
@@ -801,7 +914,7 @@ ucf (1.11) unstable; urgency=medium
 ucf (1.10) unstable; urgency=high
 
   * Urgency high since the package was mostly useless when used with
-    command line arguments and debconf. 
+    command line arguments and debconf.
   * Bug fix: "--three-way does not put the file into the cache", thanks to
     Florent Rougon . This is because the threeway option was lost when ucf
     was re-executed under debconf.                         (Closes: #278089).
@@ -863,7 +976,7 @@ ucf (1.04) unstable; urgency=low
     Frank Küster. This is still the correct behaviour, as long as a
     diff is show, which should be the case now.      (Closes: #243953).
   * Added an option to specify where the old md5sum can be found for
-    historical versions. 
+    historical versions.
 
  -- Manoj Srivastava <srivasta@debian.org>  Mon, 19 Apr 2004 12:17:19 -0500
 
@@ -896,7 +1009,7 @@ ucf (1.01) unstable; urgency=low
 ucf (1.00) unstable; urgency=low
 
   * Shut off withecho, since we should be fairly stable now. Bump version
-    number to reflect that. 
+    number to reflect that.
   * Bug fix: "ucf creates superfluous dpkg-dist files", thanks to Frank
     Küster                                            (Closes: #238730).
   * Bug fix: "ucf: diff is not displayed with DEBIAN_FRONTEND=dialog and
@@ -940,7 +1053,7 @@ ucf (0.31) unstable; urgency=low
     recognized", thanks to Frank KKüster               (Closes: #237114).
   * Bug fix: "ucf: please consider adding symlink support", thanks to Marc
     Haber. Actually, Fabio Massimo Di Nitto <fabbione@fabbione.net> did
-    the heavy lifting on this one and sent in a tested, working patch. 
+    the heavy lifting on this one and sent in a tested, working patch.
                                                        (Closes: #213080).
 
  -- Manoj Srivastava <srivasta@debian.org>  Fri, 12 Mar 2004 14:48:31 -0600
@@ -955,7 +1068,7 @@ ucf (0.29) unstable; urgency=low
 
   * Thanks to Joey Hess for noticing that the debconf support in ucf was
     not complete. Added the template to the control archive, source the
-    confmodule in postinst, and purge debconf db on purge. 
+    confmodule in postinst, and purge debconf db on purge.
 
  -- Manoj Srivastava <srivasta@debian.org>  Sun, 22 Feb 2004 09:49:20 -0600
 
@@ -1025,7 +1138,7 @@ ucf (0.23) unstable; urgency=low
 
 ucf (0.22) unstable; urgency=low
 
-  * .TT in the man page did not produce tt font. Use .I instead. 
+  * .TT in the man page did not produce tt font. Use .I instead.
                                                               closes: Bug#213077
   * se -> see. ofered -> offered  in man page.    closes: Bug#213079, Bug#213083
 
@@ -1050,7 +1163,7 @@ ucf (0.20) unstable; urgency=high
 ucf (0.19) unstable; urgency=low
 
   * Added some examples to the doc directory. Added examples to man
-    pages. Clarified man page. 
+    pages. Clarified man page.
 
  -- Manoj Srivastava <srivasta@debian.org>  Thu,  7 Aug 2003 18:48:35 -0500
 
@@ -1108,13 +1221,13 @@ ucf (0.13) unstable; urgency=medium
 ucf (0.12) unstable; urgency=low
 
   * Finally document the --three-way option. This has been in the code for
-    a while now, and seems to be working, but was not documented so far. 
+    a while now, and seems to be working, but was not documented so far.
 
  -- Manoj Srivastava <srivasta@debian.org>  Fri, 18 Apr 2003 02:42:56 -0500
 
 ucf (0.11) unstable; urgency=low
 
-  * Test for a old file before trying to copy it as backup. 
+  * Test for a old file before trying to copy it as backup.
                                                  closes: Bug#168727, Bug#168729
 
  -- Manoj Srivastava <srivasta@debian.org>  Mon, 11 Nov 2002 18:55:48 -0600
@@ -1204,7 +1317,6 @@ ucf (0.02) unstable; urgency=low
 
 ucf (0.01) unstable; urgency=low
 
-  * New version of the package.  
+  * New version of the package.
 
  -- Manoj Srivastava <srivasta@debian.org>  Tue,  5 Feb 2002 22:25:42 -0600
-

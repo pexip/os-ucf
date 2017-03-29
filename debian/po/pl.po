@@ -12,21 +12,22 @@
 #
 #    Developers do not need to manually edit POT or PO files.
 #
-# Wojciech Zarêba <wojtekz@comp.waw.pl>, 2007.
+# Wojciech ZarÄ™ba <wojtekz@comp.waw.pl>, 2007.
+# MichaÅ‚ KuÅ‚ach <michal.kulach@gmail.com>, 2012, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: ucf3002\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2009-10-13 08:14-0500\n"
-"PO-Revision-Date: 2007-06-27 17:15+0200\n"
-"Last-Translator: Wojciech Zarêba <wojtekz@itrium.icd.waw.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"PO-Revision-Date: 2014-05-10 16:20+0200\n"
+"Last-Translator: MichaÅ‚ KuÅ‚ach <michal.kulach@gmail.com>\n"
+"Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.4\n"
 
 #. Type: title
 #. Description
@@ -59,7 +60,7 @@ msgstr "zachowanie lokalnie zainstalowanej wersji"
 #. Choices
 #: ../templates:3001 ../templates:4001
 msgid "show the differences between the versions"
-msgstr "pokazanie ró¿nic pomiêdzy wersjami"
+msgstr "pokazanie rÃ³Å¼nic pomiÄ™dzy wersjami"
 
 #. Type: select
 #. Choices
@@ -68,21 +69,21 @@ msgstr "pokazanie ró¿nic pomiêdzy wersjami"
 #. Choices
 #: ../templates:3001 ../templates:4001
 msgid "show a side-by-side difference between the versions"
-msgstr "pokazanie ró¿nic - obok siebie - pomiêdzy wersjami"
+msgstr "pokazanie rÃ³Å¼nic - obok siebie - pomiÄ™dzy wersjami"
 
 #. Type: select
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
 msgid "show a 3-way difference between available versions"
-msgstr "pokazanie ró¿nic pomiêdzy trzema dostêpnymi wersjami"
+msgstr "pokazanie rÃ³Å¼nic pomiÄ™dzy trzema dostÄ™pnymi wersjami"
 
 #. Type: select
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
 msgid "do a 3-way merge between available versions (experimental)"
-msgstr "scalenie zmian pomiêdzy 3 dostêpnymi wersjami (eksperymentalne)"
+msgstr "scalenie zmian pomiÄ™dzy 3 dostÄ™pnymi wersjami (eksperymentalne)"
 
 #. Type: select
 #. Choices
@@ -91,40 +92,44 @@ msgstr "scalenie zmian pomiêdzy 3 dostêpnymi wersjami (eksperymentalne)"
 #. Choices
 #: ../templates:3001 ../templates:4001
 msgid "start a new shell to examine the situation"
-msgstr "uruchomienie pow³oki w celu zbadania sytuacji"
+msgstr "uruchomienie powÅ‚oki w celu zbadania sytuacji"
 
 #. Type: select
 #. Description
 #. Type: select
 #. Description
 #: ../templates:3002 ../templates:4002
-#, fuzzy
 msgid "What do you want to do about modified configuration file ${BASENAME}?"
-msgstr "Proszê wybraæ akcjê do wykonania na pliku ${BASENAME}:"
+msgstr ""
+"Jakie dziaÅ‚anie ma zostaÄ‡ wykonane w zwiÄ…zku z modyfikacjÄ… pliku ${BASENAME}?"
 
 #. Type: select
 #. Description
 #. Type: select
 #. Description
 #: ../templates:3002 ../templates:4002
+#| msgid ""
+#| "A new version of configuration file ${FILE} is available, but the version "
+#| "installed currently has been locally modified."
 msgid ""
-"A new version of configuration file ${FILE} is available, but the version "
-"installed currently has been locally modified."
+"A new version (${NEW}) of configuration file ${FILE} is available, but the "
+"version installed currently has been locally modified."
 msgstr ""
-"Dostêpna jest nowa wersja pliku konfiguracyjnego ${FILE}, ale obecna wersja "
-"zosta³a lokalnie zmodyfikowana."
+"DostÄ™pna jest nowa wersja (${NEW}) pliku konfiguracyjnego ${FILE}, ale obecna "
+"wersja "
+"zostaÅ‚a lokalnie zmodyfikowana."
 
 #. Type: note
 #. Description
 #: ../templates:5001
 msgid "Line by line differences between versions"
-msgstr "Ró¿nice linia po linii pomiêdzy wersjami"
+msgstr "RÃ³Å¼nice pomiÄ™dzy wersjami - wiersz po wierszu"
 
 #. Type: error
 #. Description
 #: ../templates:6001
 msgid "Conflicts found in three-way merge"
-msgstr ""
+msgstr "Znaleziono konflikt podczas scalania pomiÄ™dzy trzema wersjami"
 
 #. Type: error
 #. Description
@@ -133,6 +138,8 @@ msgid ""
 "Conflicts found during three-way merge! Please edit `${dest_file}' and sort "
 "them out manually."
 msgstr ""
+"WystÄ…piÅ‚ konflikt podczas scalania pomiÄ™dzy trzema wersjami! ProszÄ™ dokonaÄ‡ "
+"edycji \"${dest_file}\" i rozwiÄ…zaÄ‡ problem samodzielnie."
 
 #. Type: error
 #. Description
@@ -141,8 +148,17 @@ msgid ""
 "The file `${dest_file}.${ERR_SUFFIX}' has a record of the failed merge of "
 "the configuration file."
 msgstr ""
+"Plik \"${dest_file}.${ERR_SUFFIX}\" posiada wpis o niepoprawnym scalaniu "
+"pliku konfiguracyjnego."
+
+#~ msgid ""
+#~ "A new version of configuration file ${FILE} is available, but the version "
+#~ "installed currently has been locally modified."
+#~ msgstr ""
+#~ "DostÄ™pna jest nowa wersja pliku konfiguracyjnego ${FILE}, ale obecna "
+#~ "wersja zostaÅ‚a lokalnie zmodyfikowana."
 
 #, fuzzy
 #~| msgid "What would you like to do about ${BASENAME}?"
 #~ msgid "What do you want to do about modified configration file ${BASENAME}?"
-#~ msgstr "Proszê wybraæ akcjê do wykonania na pliku ${BASENAME}:"
+#~ msgstr "ProszÄ™ wybraÄ‡ akcjÄ™ do wykonania na pliku ${BASENAME}:"

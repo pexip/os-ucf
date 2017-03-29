@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf 3.0023\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2009-10-13 08:14-0500\n"
+"POT-Creation-Date: 2014-05-07 01:28-0700\n"
 "PO-Revision-Date: 2009-10-14 19:51+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -99,9 +99,13 @@ msgstr "Đối với tập tin cấu hình bị sửa đổi ${BASENAME} muốn 
 #. Type: select
 #. Description
 #: ../templates:3002 ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version of configuration file ${FILE} is available, but the version "
+#| "installed currently has been locally modified."
 msgid ""
-"A new version of configuration file ${FILE} is available, but the version "
-"installed currently has been locally modified."
+"A new version (${NEW}) of configuration file ${FILE} is available, but the "
+"version installed currently has been locally modified."
 msgstr ""
 "Có sẵn một phiên bản mới của tập tin cấu hình ${FILE}, nhưng phiên bản được "
 "cài đặt hiện thời đã bị sửa đổi cục bộ."
@@ -137,3 +141,12 @@ msgid ""
 msgstr ""
 "Tập tin đích « ${dest_file}.${ERR_SUFFIX} » đã ghi lưu tiến trình hoà trộn "
 "bị lỗi của tập tin cấu hình."
+
+# A new version of configuration file ${FILE} is available, but your
+# version has been locally modified.
+#~ msgid ""
+#~ "A new version of configuration file ${FILE} is available, but the version "
+#~ "installed currently has been locally modified."
+#~ msgstr ""
+#~ "Có sẵn một phiên bản mới của tập tin cấu hình ${FILE}, nhưng phiên bản "
+#~ "được cài đặt hiện thời đã bị sửa đổi cục bộ."

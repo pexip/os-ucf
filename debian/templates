@@ -18,7 +18,7 @@ __Choices: install the package maintainer's version, keep the local version curr
 Choices-C: install_new, keep_current, diff, sdiff, diff_threeway, merge_threeway, shell
 Default: keep_current
 _Description: What do you want to do about modified configuration file ${BASENAME}?
- A new version of configuration file ${FILE} is available, but the version installed
+ A new version (${NEW}) of configuration file ${FILE} is available, but the version installed
  currently has been locally modified.
 
 Template: ucf/changeprompt
@@ -27,7 +27,7 @@ __Choices: install the package maintainer's version, keep the local version curr
 Choices-C: install_new, keep_current, diff, sdiff, shell
 Default: keep_current
 _Description: What do you want to do about modified configuration file ${BASENAME}?
- A new version of configuration file ${FILE} is available, but the version installed
+ A new version (${NEW}) of configuration file ${FILE} is available, but the version installed
  currently has been locally modified.
 
 Template: ucf/show_diff

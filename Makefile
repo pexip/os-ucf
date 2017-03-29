@@ -12,7 +12,7 @@
 ## Description      : 
 ## 
 ###############################################################################
-prefix    =
+prefix    = $(DESTDIR)
 package   = ucf
 
 ETCDIR    = $(prefix)/etc
@@ -34,9 +34,9 @@ check:
 	bash -n  ucf
 	bash -n  ucfr
 	perl -wc ucfq
-	bash -n  debian/preinst
-	bash -n  debian/postinst
-	bash -n  debian/postrm
+	bash -n  debian/ucf.preinst
+	bash -n  debian/ucf.postinst
+	bash -n  debian/ucf.postrm
 
 install:
 	$(make_directory)   $(BINDIR)

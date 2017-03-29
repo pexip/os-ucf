@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf 3.0025\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2009-10-13 08:14-0500\n"
+"POT-Creation-Date: 2014-05-07 01:28-0700\n"
 "PO-Revision-Date: 2010-08-08 01:53+0200\n"
 "Last-Translator: Javier Fernandez-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -120,9 +120,13 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:3002 ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version of configuration file ${FILE} is available, but the version "
+#| "installed currently has been locally modified."
 msgid ""
-"A new version of configuration file ${FILE} is available, but the version "
-"installed currently has been locally modified."
+"A new version (${NEW}) of configuration file ${FILE} is available, but the "
+"version installed currently has been locally modified."
 msgstr ""
 "Hay una nueva versión del fichero de configuración ${FILE}, pero la versión "
 "que está instalada ha sido modificada localmente."
@@ -158,6 +162,13 @@ msgid ""
 msgstr ""
 "El fichero «${dest_file}.${ERR_SUFFIX}» tiene el registro del fallo de "
 "integración del fichero de configuración."
+
+#~ msgid ""
+#~ "A new version of configuration file ${FILE} is available, but the version "
+#~ "installed currently has been locally modified."
+#~ msgstr ""
+#~ "Hay una nueva versión del fichero de configuración ${FILE}, pero la "
+#~ "versión que está instalada ha sido modificada localmente."
 
 #, fuzzy
 #~| msgid "What would you like to do about ${BASENAME}?"

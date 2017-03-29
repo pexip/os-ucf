@@ -1,20 +1,20 @@
 Source: ucf
-VCS-Git: git://git.debian.org/~srivasta/debian/ucf.git
-VCS-Browser: http://git.debian.org/?p=users/srivasta/debian/ucf.git
+VCS-Git: git://anonscm.debian.org/users/srivasta/debian/ucf.git
+VCS-Browser: http://anonscm.debian.org/gitweb/?p=users/srivasta/debian/ucf.git
 Section: utils
 Priority: standard
 Maintainer: Pexip AS <packaging@pexip.com>
-XSBC-Pexip-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-XSBC-Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
-Build-Depends-Indep: po-debconf, gettext
-Standards-Version: 3.8.3.0
+XSBC-Pexip-Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
+Build-Depends-Indep: po-debconf, gettext, debhelper (>= 9.0.0)
+Standards-Version: 3.9.5
 XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
 
 Package: ucf
 Architecture: all
-Depends: debconf (>= 1.5.19), coreutils (>= 5.91)
-Description: Update Configuration File: preserve user changes to config files.
- Debian policy mandates that user changes to configuration files must be 
+Multi-Arch: foreign
+Depends: debconf (>= 1.5.19), coreutils (>= 5.91), ${misc:Depends}
+Description: Update Configuration File(s): preserve user changes to config files
+ Debian policy mandates that user changes to configuration files must be
  preserved during package upgrades. The easy way to achieve this behavior
  is to make the configuration file a 'conffile', in which case dpkg
  handles the file specially during upgrades, prompting the user as
@@ -25,7 +25,7 @@ Description: Update Configuration File: preserve user changes to config files.
  administrators may choose to modify it. This implies that the
  default version will be part of the package distribution, and must
  not be modified by the maintainer scripts during installation (or at
- any other time). 
+ any other time).
  .
  This script attempts to provide conffile-like handling for files that
  may not be labelled conffiles, and are not shipped in a Debian package,

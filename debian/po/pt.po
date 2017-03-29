@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the ucf package.
 #
 # 2007, Pedro Ribeiro <p.m42.ribeiro@gmail.com>
-# Bruno Queiros <brunomiguelqueiros@sapo.pt>, 2007.
-# Américo Monteiro <a_monteiro@netcabo.pt>, 2010.
 #
+# Bruno Queiros <brunomiguelqueiros@sapo.pt>, 2007.
+# Américo Monteiro <a_monteiro@gmx.com>, 2010, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: ucf 3.0025\n"
+"Project-Id-Version: ucf 3.0028\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2009-10-13 08:14-0500\n"
-"PO-Revision-Date: 2010-07-11 23:46+0100\n"
-"Last-Translator: Américo Monteiro <a_monteiro@netcabo.pt>\n"
+"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"PO-Revision-Date: 2014-05-07 13:06+0100\n"
+"Last-Translator: Américo Monteiro <a_monteiro@gmx.com>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Type: title
@@ -103,11 +103,11 @@ msgstr ""
 #. Description
 #: ../templates:3002 ../templates:4002
 msgid ""
-"A new version of configuration file ${FILE} is available, but the version "
-"installed currently has been locally modified."
+"A new version (${NEW}) of configuration file ${FILE} is available, but the "
+"version installed currently has been locally modified."
 msgstr ""
-"Uma nova versão do ficheiro de configuração ${FILE} está disponível, mas a "
-"versão instalada foi modificada localmente."
+"Está disponível nova versão (${NEW}) do ficheiro de configuração ${FILE}, "
+"mas a versão actualmente instalada foi modificada localmente."
 
 #. Type: note
 #. Description
@@ -140,3 +140,4 @@ msgid ""
 msgstr ""
 "O ficheiro '${dest_file}.${ERR_SUFFIX}' tem um registo da fusão falhada do "
 "ficheiro de configuração."
+
