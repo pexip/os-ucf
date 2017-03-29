@@ -8,7 +8,7 @@ XSBC-Pexip-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ub
 XSBC-Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
 Build-Depends-Indep: po-debconf, gettext
 Standards-Version: 3.8.3.0
-XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
 
 Package: ucf
 Architecture: all
@@ -40,4 +40,3 @@ Description: Update Configuration File: preserve user changes to config files.
  installation time. Indeed, the transitioning facility is better than the
  one offered by dpkg while transitioning a file from a non-conffile to
  conffile status.
- 
