@@ -7,7 +7,7 @@ Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
 Build-Depends-Indep: po-debconf, gettext, debhelper (>= 9.0.0)
 Standards-Version: 3.9.5
-XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: ucf
 Architecture: all
