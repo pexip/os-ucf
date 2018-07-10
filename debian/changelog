@@ -1,3 +1,71 @@
+ucf (3.0036) unstable; urgency=low
+
+  * Incorporate enhancement from Robert Luberda <robert@debian.org>
+  * Bug fix: "diff screen is ugly, unreadable and counterintuitive",
+    thanks to Robert Luberda                      (Closes: #817982).
+  * Updated the Standards version to 3.9.7. No changes needed.
+
+ -- Manoj Srivastava <srivasta@debian.org>  Wed, 16 Mar 2016 13:57:43 -0700
+
+ucf (3.0035+local1) UNRELEASED; urgency=medium
+
+  * Display the file permissions and ownerships information either in diff
+    label lines or in additional lines prepended to sdiff output not to
+    hide the actuall file differences by the whole output of /usr/bin/stat
+    command (Closes: #817982). As a side effect, fix a bug introduced in
+    3.0034 that caused ucf to fail on not yet existing destination files.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 13 Mar 2016 14:38:46 +0100
+
+ucf (3.0035) unstable; urgency=low
+
+  * Minor typo fixing release.
+
+ -- Manoj Srivastava <srivasta@debian.org>  Sun, 14 Feb 2016 22:18:52 -0800
+
+ucf (3.0034) unstable; urgency=low
+
+  * Bug fix: "show differences with respect to permissions and ownership
+    of old/new file", thanks to Paul Gevers. Now uses /usr/bin/stat from
+    coreutils to show the metadata about the old and the new files before
+    the actual diffs. (Closes: #812321).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Sat, 13 Feb 2016 20:54:23 -0800
+
+ucf (3.0033) unstable; urgency=low
+
+  * Bug fix: "ucf breaks installation of texlive-base (basename: missing
+    operand)", thanks to Andreas Metzler. This has been a long standing
+    bug, unmasked by the cleanup done last upload. When purging, there is
+    no new file, just a destination file that needs to be removed. So,
+    this commit makes no action on new-file when purging.  (Closes: #812402).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Sat, 23 Jan 2016 13:52:29 -0800
+
+ucf (3.0032) unstable; urgency=low
+
+  * Ran shellcheck on all the shell scripts, and fixed most of the issues
+    found.
+  * Bug fix: "[INTL:nl] Dutch translation of debconf messages", thanks to
+    Frans Spiesschaert (Closes: #812354).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Fri, 22 Jan 2016 18:23:28 -0800
+
+ucf (3.0031) unstable; urgency=low
+
+  * New bugfixing release
+  * Bug fix: "[INTL:es] Spanish translation of debconf messages", thanks
+    to Matias A. Bellone                                (Closes: #752959).
+  * Bug fix: "incorrectly processed VERBOSE&amp;DEBUG in config", thanks
+    to YK. Correctly send the verbose output to STDERR, not STDOUt.
+                                                         (Closes: #762857).
+  * Bug fix: "[INTL:nl] Dutch translation of debconf messages", thanks to
+    Frans Spiesschaert (Closes: #763459).
+  * Update the policy version to the latest. No changes were required.
+  * Update the copyright file to follow DEP-5 format.
+
+ -- Manoj Srivastava <srivasta@debian.org>  Thu, 05 Nov 2015 12:25:03 -0800
+
 ucf (3.0030pexip1) pexip; urgency=low
 
   * Migrate to Jessie
