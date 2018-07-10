@@ -1,3 +1,9 @@
+ucf (3.0036pexip1) pexip; urgency=medium
+
+  * Migrate to Stretch
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 10 Jul 2018 11:53:05 +0000
+
 ucf (3.0036) unstable; urgency=low
 
   * Incorporate enhancement from Robert Luberda <robert@debian.org>
