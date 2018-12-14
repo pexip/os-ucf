@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
 "PO-Revision-Date: 2009-11-05 20:38+0100\n"
 "Last-Translator: Marce Villarino <mvillarino@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -71,8 +71,10 @@ msgstr "mostrar unha diferenza a tres entre as versións dispoñíbeis"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "fusionar a tres as versións dispoñibles (experimental)"
+#, fuzzy
+#| msgid "show a 3-way difference between available versions"
+msgid "do a 3-way merge between available versions"
+msgstr "mostrar unha diferenza a tres entre as versións dispoñíbeis"
 
 #. Type: select
 #. Choices
@@ -93,9 +95,7 @@ msgstr "Que desexa facer co ficheiro de configuración modificado ${BASENAME}?"
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 #, fuzzy
 #| msgid ""
 #| "A new version of configuration file ${FILE} is available, but the version "
@@ -103,6 +103,20 @@ msgstr "Que desexa facer co ficheiro de configuración modificado ${BASENAME}?"
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
+msgstr ""
+"Hai dispoñíbel unha nova versión do ficheiro de configuración ${FILE}, pero "
+"a versión actualmente instalada ten modificacións locais."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version of configuration file ${FILE} is available, but the version "
+#| "installed currently has been locally modified."
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
 msgstr ""
 "Hai dispoñíbel unha nova versión do ficheiro de configuración ${FILE}, pero "
 "a versión actualmente instalada ten modificacións locais."
@@ -138,6 +152,9 @@ msgid ""
 msgstr ""
 "O ficheiro «${dest_file}.{ERR_SUFFIX}» contén un rexistro da fusión "
 "fracasada do ficheiro de configuración."
+
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr "fusionar a tres as versións dispoñibles (experimental)"
 
 #~ msgid ""
 #~ "A new version of configuration file ${FILE} is available, but the version "

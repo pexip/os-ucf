@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf_1.18_templates\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
 "PO-Revision-Date: 2007-09-19 01:10-0500\n"
 "Last-Translator: Luca Bruno <lucab@debian.org>\n"
 "Language-Team:  Italian <tp@lists.linux.it>\n"
@@ -66,8 +66,10 @@ msgstr "mostrare le differenze tra le 3 versioni del file disponibili"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "integrare le differenze tra le 3 versioni (sperimentale)"
+#, fuzzy
+#| msgid "show a 3-way difference between available versions"
+msgid "do a 3-way merge between available versions"
+msgstr "mostrare le differenze tra le 3 versioni del file disponibili"
 
 #. Type: select
 #. Choices
@@ -88,9 +90,7 @@ msgstr "Cosa si vuol fare del file di configurazione modificato ${BASENAME}?"
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 #, fuzzy
 #| msgid ""
 #| "A new version of configuration file ${FILE} is available, but the version "
@@ -98,6 +98,20 @@ msgstr "Cosa si vuol fare del file di configurazione modificato ${BASENAME}?"
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
+msgstr ""
+"Una nuova versione del file di configurazione ${FILE} è disponibile, ma la "
+"propria versione è stata modificata localmente."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version of configuration file ${FILE} is available, but the version "
+#| "installed currently has been locally modified."
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
 msgstr ""
 "Una nuova versione del file di configurazione ${FILE} è disponibile, ma la "
 "propria versione è stata modificata localmente."
@@ -133,6 +147,9 @@ msgid ""
 msgstr ""
 "Il file «${dest_file}.${ERR_SUFFIX}» contiene il resoconto della tentata "
 "integrazione del file di configurazione."
+
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr "integrare le differenze tra le 3 versioni (sperimentale)"
 
 #~ msgid ""
 #~ "A new version of configuration file ${FILE} is available, but the version "

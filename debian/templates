@@ -14,7 +14,7 @@ _Description: Modified configuration file
 Template: ucf/changeprompt_threeway
 Type: select
 # Translators, please keep translations *short* (less than 65 columns)
-__Choices: install the package maintainer's version, keep the local version currently installed, show the differences between the versions, show a side-by-side difference between the versions, show a 3-way difference between available versions, do a 3-way merge between available versions (experimental), start a new shell to examine the situation
+__Choices: install the package maintainer's version, keep the local version currently installed, show the differences between the versions, show a side-by-side difference between the versions, show a 3-way difference between available versions, do a 3-way merge between available versions, start a new shell to examine the situation
 Choices-C: install_new, keep_current, diff, sdiff, diff_threeway, merge_threeway, shell
 Default: keep_current
 _Description: What do you want to do about modified configuration file ${BASENAME}?
@@ -27,7 +27,7 @@ __Choices: install the package maintainer's version, keep the local version curr
 Choices-C: install_new, keep_current, diff, sdiff, shell
 Default: keep_current
 _Description: What do you want to do about modified configuration file ${BASENAME}?
- A new version (${NEW}) of configuration file ${FILE} is available, but the version installed
+ ${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is available, but the version installed
  currently has been locally modified.
 
 Template: ucf/show_diff

@@ -1,3 +1,59 @@
+ucf (3.0038+nmu1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Obvious lintian fixes:
+    -vcs-obsolete-in-debian-infrastructure
+  * Update Debconf translations:
+    -es from Matias Bellone (Closes: #891524)
+    -fr from jean-pierre giraud (Closes: #891545)
+    -de from Holger Wansing (Closes: #898079)
+
+ -- Helge Kreutzmann <debian@helgefjell.de>  Fri, 14 Dec 2018 09:51:14 +0100
+
+ucf (3.0038) unstable; urgency=medium
+
+  * A bug fixing and translation adding release.
+  * Bug fix: "Vcs-Git URL is 404-compliant", thanks to Sven Joachim
+    (Closes: #890647).
+  * Bug fix: "there should be a --purge-all option", thanks to Marc Haber
+    (Closes: #878893). Documented how to loop over ucfq to remove/purge
+    all the conffiles.
+  * Bug fix: "[INTL:ru] Russian debconf templates translation update",
+    thanks to Yuri Kozlov (Closes: #890643).
+  * Bug fix: "[INTL:pt] Updated Portuguese translation - debconf
+    messages", thanks to Américo Monteiro (Closes: #890708).
+  * Bug fix: "[INTL:da] Danish translation of the debconf templates ucf",
+    thanks to Joe Dalton (Closes: #890739).
+  * Bug fix: "[l10n] update Japanese debconf translation", thanks to
+    Kenshi Muto (Closes: #890802).
+  * Bug fix: "[INTL:pt_BR] Brazilian Portuguese debconf templates
+    translation", thanks to Adriano Rafael Gomes (Closes: #891165).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Sun, 25 Feb 2018 16:58:23 -0800
+
+ucf (3.0037) unstable; urgency=medium
+
+  * A new bugfixing release.
+  * Bug fix: "Typo in ucfr(1)", thanks to Carsten Leonhardt (Closes:
+    #835171).
+  * Bug fix: "[PATCH] diffs are rendered with broken spacing", thanks to
+    Dima Kogan (Closes: #862607).
+  * Bug fix: "offers 3-way merge even without --three-way option", thanks
+    to Marc Haber (Closes: #879558).
+  * Bug fix: "Corrupt its database if root&#39;s bashrc has GREP_OPTIONS
+    env", thanks to Adam Cecile &lt;adam.cecile@hitec.lu&gt; (Closes:
+    #845625).
+  * Bug fix: "please consider removing the experimental tag from
+    --three-way", thanks to Marc Haber (Closes: #879641).
+  * Bug fix: "manpage ucf(1) refers ancient releases", thanks to Marc
+    Haber (Closes: #878891).
+  * Bug fix: "Bad UI on prompts", thanks to Peter Palfrader (Closes:
+    #870474). We already had a title that mentioned the conffile
+    name. Added it to the beginning of the running text as well. If the
+    title is not displayed, then the denconf frontend should be improved.
+
+ -- Manoj Srivastava <srivasta@debian.org>  Fri, 16 Feb 2018 16:07:03 -0800
+
 ucf (3.0036) unstable; urgency=low
 
   * Incorporate enhancement from Robert Luberda <robert@debian.org>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf 2.002\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
 "PO-Revision-Date: 2014-05-07 11:12+0100\n"
 "Last-Translator: Martin Bagge / brother <brother@bsnet.se>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
@@ -71,8 +71,10 @@ msgstr "visa en 3-vägs skillnad mellan tillgängliga versioner"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "gör en 3-vägs sammanslagning mellan versionerna (experimentell)"
+#, fuzzy
+#| msgid "show a 3-way difference between available versions"
+msgid "do a 3-way merge between available versions"
+msgstr "visa en 3-vägs skillnad mellan tillgängliga versioner"
 
 #. Type: select
 #. Choices
@@ -93,12 +95,24 @@ msgstr "Vad vill du göra med den uppdaterade filen ${BASENAME}?"
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
+msgstr ""
+"En ny version (${NEW}) av konfigurationsfilen ${FILE} finns tillgänglig, men "
+"versionen som är installerad har ändrats lokalt."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version (${NEW}) of configuration file ${FILE} is available, but "
+#| "the version installed currently has been locally modified."
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
 msgstr ""
 "En ny version (${NEW}) av konfigurationsfilen ${FILE} finns tillgänglig, men "
 "versionen som är installerad har ändrats lokalt."
@@ -134,6 +148,9 @@ msgid ""
 msgstr ""
 "Filen \"${dest_file}.${ERR_SUFFIX}\"  innehåller en notering av den "
 "misslyckade sammanslagningen av inställningsfilerna."
+
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr "gör en 3-vägs sammanslagning mellan versionerna (experimentell)"
 
 #~ msgid ""
 #~ "A new version of configuration file ${FILE} is available, but the version "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf 3.0023\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
 "PO-Revision-Date: 2009-10-14 19:51+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -66,14 +66,14 @@ msgstr "hiển thị khác biệt cạnh nhau giữa những phiên bản"
 msgid "show a 3-way difference between available versions"
 msgstr "hiển thị khác biệt ba hướng giữa những phiên bản sẵn sàng"
 
-# do a 3 way merge between available versions of the file [Very
-# Experimental]
 #. Type: select
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "hoà trộn ba hướng những phiên bản sẵn sàng (vẫn thực nghiệm)"
+#, fuzzy
+#| msgid "show a 3-way difference between available versions"
+msgid "do a 3-way merge between available versions"
+msgstr "hiển thị khác biệt ba hướng giữa những phiên bản sẵn sàng"
 
 #. Type: select
 #. Choices
@@ -96,9 +96,7 @@ msgstr "Đối với tập tin cấu hình bị sửa đổi ${BASENAME} muốn 
 # version has been locally modified.
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 #, fuzzy
 #| msgid ""
 #| "A new version of configuration file ${FILE} is available, but the version "
@@ -106,6 +104,22 @@ msgstr "Đối với tập tin cấu hình bị sửa đổi ${BASENAME} muốn 
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
+msgstr ""
+"Có sẵn một phiên bản mới của tập tin cấu hình ${FILE}, nhưng phiên bản được "
+"cài đặt hiện thời đã bị sửa đổi cục bộ."
+
+# A new version of configuration file ${FILE} is available, but your
+# version has been locally modified.
+#. Type: select
+#. Description
+#: ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version of configuration file ${FILE} is available, but the version "
+#| "installed currently has been locally modified."
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
 msgstr ""
 "Có sẵn một phiên bản mới của tập tin cấu hình ${FILE}, nhưng phiên bản được "
 "cài đặt hiện thời đã bị sửa đổi cục bộ."
@@ -141,6 +155,11 @@ msgid ""
 msgstr ""
 "Tập tin đích « ${dest_file}.${ERR_SUFFIX} » đã ghi lưu tiến trình hoà trộn "
 "bị lỗi của tập tin cấu hình."
+
+# do a 3 way merge between available versions of the file [Very
+# Experimental]
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr "hoà trộn ba hướng những phiên bản sẵn sàng (vẫn thực nghiệm)"
 
 # A new version of configuration file ${FILE} is available, but your
 # version has been locally modified.

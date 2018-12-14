@@ -1,8 +1,8 @@
 # Danish translation ucf.
 # This file is distributed under the same license as the ucf package.
-# Copyright (C) 2014 ucf & nedenstående oversættere.
+# Copyright (C) 2018 ucf & nedenstående oversættere.
 # Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2005, 2007.
-# Joe Hansen <joedalton2@yahoo.dk>, 2010, 2014.
+# Joe Hansen <joedalton2@yahoo.dk>, 2010, 2014, 2018.
 #
 # configuration file -> opsætningsfil (normalt konfigurationsfil, men tidligere 
 #                                     havde opsætningsfil så har beholdt den).
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf debconf template\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
-"PO-Revision-Date: 2014-05-08 17:34+0000\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
+"PO-Revision-Date: 2018-02-18 17:34+0000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -73,9 +73,8 @@ msgstr "vis 3-vejs forskelle mellem de tilgængelige udgaver af filen"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr ""
-"udfør en 3-vejs fletning mellem tilgængelige versioner (eksperimentelt)"
+msgid "do a 3-way merge between available versions"
+msgstr "lav 3-vejs forskelle mellem de tilgængelige udgaver af filen"
 
 #. Type: select
 #. Choices
@@ -96,15 +95,23 @@ msgstr "Hvad vil du gøre med ændret opsætningsfil ${BASENAME}?"
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
 msgstr ""
 "En ny version (${NEW}) af opsætningsfilen ${FILE} er tilgængelig, men den "
 "installerede version er blevet ændret lokalt."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
+msgstr ""
+"${BASENAME}: En ny version (${NEW}) af opsætningsfilen ${FILE} er "
+"tilgængelig, men den installerede version er blevet ændret lokalt."
 
 #. Type: note
 #. Description
@@ -138,4 +145,6 @@ msgstr ""
 "Filen `${dest_file}.${ERR_SUFFIX}' har en post over den mislykkede "
 "sammenføjning af opsætningsfilen."
 
-
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr ""
+#~ "udfør en 3-vejs fletning mellem tilgængelige versioner (eksperimentelt)"

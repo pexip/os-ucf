@@ -35,7 +35,7 @@
 .\" Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 .\" 02111-1307, USA.
 .\"
-.TH UCFR 1 "Apr 11 2006" "Debian" "Debian GNU/Linux manual"
+.TH UCFR 1 "Feb 16 2018" "Debian" "Debian GNU/Linux manual"
 .SH NAME
 ucfr \- Update Configuration File Registry:  associate packages with configuration files
 .SH SYNOPSIS
@@ -67,7 +67,7 @@ package, but handled by the postinst by
 instead. This script is idempotent, associating a package to a file
 multiple times is not an error.  It is normally an error to try to
 associate a file which is already associated with another package, but
-this can be over ridden by using the
+this can be overridden by using the
 .I \-\-force
 option.
 .SH OPTIONS
@@ -144,12 +144,30 @@ needed:
 .I /etc/foo.conf
 .PP
 On purge, one should tell ucf to forget about the file (see detailed
-examples in /usr/share/doc/examples):
+examples in /usr/share/doc/ucf/examples):
 .PP
 .B ucfr
 .I \-\-purge
 .I foo
 .I /etc/foo.conf
+.PP
+If you want to remove all the conf files for a given package
+.I foo,
+the simplest way is to use
+.B ucfq.
+For example
+.PP
+.B ucfq
+.I \-w
+.I foo |
+.B cut
+.I \-d : \-f 1 |
+.B while read
+.I cfile ;
+.B do
+.B ucfr
+.I \-v $cfile ;
+.B done
 .SH "SEE ALSO"
 ucf(1), ucf.conf(5).
 .SH AUTHOR

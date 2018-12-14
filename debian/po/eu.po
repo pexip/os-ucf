@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf_3.0024_eu\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
 "PO-Revision-Date: 2014-05-07 12:11+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <debian-l10n-basque@lists.debian.org>\n"
@@ -72,8 +72,10 @@ msgstr "erakutsi bertsioen arteko desberdintasunak 3-moduan"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "egin bertsio eskuragarrien 3-moduko batura (esperimentala)"
+#, fuzzy
+#| msgid "show a 3-way difference between available versions"
+msgid "do a 3-way merge between available versions"
+msgstr "erakutsi bertsioen arteko desberdintasunak 3-moduan"
 
 #. Type: select
 #. Choices
@@ -95,12 +97,24 @@ msgstr ""
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
+msgstr ""
+"${FILE} konfigurazioko fitxategiaren bertsio berri bat (${NEW}) dago "
+"eskuragarri, baina instalatutako bertsioa lokalki aldatua izan da."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version (${NEW}) of configuration file ${FILE} is available, but "
+#| "the version installed currently has been locally modified."
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
 msgstr ""
 "${FILE} konfigurazioko fitxategiaren bertsio berri bat (${NEW}) dago "
 "eskuragarri, baina instalatutako bertsioa lokalki aldatua izan da."
@@ -136,6 +150,9 @@ msgid ""
 msgstr ""
 "'${dest_file}.${ERR_SUFFIX}' fitxategiak erregistro bat du konfigurazioko "
 "fitxategiak batzean huts egin duten sarrerekin."
+
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr "egin bertsio eskuragarrien 3-moduko batura (esperimentala)"
 
 #~ msgid ""
 #~ "A new version of configuration file ${FILE} is available, but the version "

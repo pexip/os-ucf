@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf_3.003\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
 "PO-Revision-Date: 2014-05-07 18:38+0200\n"
 "Last-Translator: Esko Arajärvi <edu@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -67,8 +67,10 @@ msgstr "Näytä versioiden välinen kolmisuuntainen erotus"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "Tee kolmisuuntainen versioiden yhdistys (kokeellinen)"
+#, fuzzy
+#| msgid "show a 3-way difference between available versions"
+msgid "do a 3-way merge between available versions"
+msgstr "Näytä versioiden välinen kolmisuuntainen erotus"
 
 #. Type: select
 #. Choices
@@ -89,12 +91,24 @@ msgstr "Miten muokattu asetustiedosto ${BASENAME} käsitellään?"
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
+msgstr ""
+"Asetustiedostosta ${FILE} on tarjolla uusi versio (${NEW}), mutta nykyistä "
+"versiota on muokattu paikallisesti."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version (${NEW}) of configuration file ${FILE} is available, but "
+#| "the version installed currently has been locally modified."
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
 msgstr ""
 "Asetustiedostosta ${FILE} on tarjolla uusi versio (${NEW}), mutta nykyistä "
 "versiota on muokattu paikallisesti."
@@ -130,6 +144,9 @@ msgid ""
 msgstr ""
 "Tiedostossa ”${dest_file}.${ERR_SUFFIX}” on tiedot asetustiedoston "
 "epäonnistuneesta yhdistämisestä."
+
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr "Tee kolmisuuntainen versioiden yhdistys (kokeellinen)"
 
 #~ msgid ""
 #~ "A new version of configuration file ${FILE} is available, but the version "

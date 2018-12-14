@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf 3.0025+nmu1\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
 "PO-Revision-Date: 2010-07-07 09:53+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -69,8 +69,10 @@ msgstr "mostra les diferències a 3 bandes entre les versions"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "fes una fusió a 3 bandes entre les versions disponibles (experimental)"
+#, fuzzy
+#| msgid "show a 3-way difference between available versions"
+msgid "do a 3-way merge between available versions"
+msgstr "mostra les diferències a 3 bandes entre les versions"
 
 #. Type: select
 #. Choices
@@ -92,9 +94,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 #, fuzzy
 #| msgid ""
 #| "A new version of configuration file ${FILE} is available, but the version "
@@ -102,6 +102,20 @@ msgstr ""
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
+msgstr ""
+"Hi ha una nova versió del fitxer de configuració ${FILE}, però la vostra "
+"versió s'ha modificat localment."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version of configuration file ${FILE} is available, but the version "
+#| "installed currently has been locally modified."
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
 msgstr ""
 "Hi ha una nova versió del fitxer de configuració ${FILE}, però la vostra "
 "versió s'ha modificat localment."
@@ -137,6 +151,10 @@ msgid ""
 msgstr ""
 "El fitxer «${dest_file}.${ERR_SUFFIX}» té un registre de la fusió fallida "
 "del fitxer de configuració."
+
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr ""
+#~ "fes una fusió a 3 bandes entre les versions disponibles (experimental)"
 
 #~ msgid ""
 #~ "A new version of configuration file ${FILE} is available, but the version "
