@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf3002\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
 "PO-Revision-Date: 2014-05-10 16:20+0200\n"
 "Last-Translator: Michał Kułach <michal.kulach@gmail.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
@@ -82,8 +82,10 @@ msgstr "pokazanie różnic pomiędzy trzema dostępnymi wersjami"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "scalenie zmian pomiędzy 3 dostępnymi wersjami (eksperymentalne)"
+#, fuzzy
+#| msgid "show a 3-way difference between available versions"
+msgid "do a 3-way merge between available versions"
+msgstr "pokazanie różnic pomiędzy trzema dostępnymi wersjami"
 
 #. Type: select
 #. Choices
@@ -105,12 +107,24 @@ msgstr ""
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
+msgstr ""
+"Dostępna jest nowa wersja (${NEW}) pliku konfiguracyjnego ${FILE}, ale "
+"obecna wersja została lokalnie zmodyfikowana."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+#, fuzzy
+#| msgid ""
+#| "A new version (${NEW}) of configuration file ${FILE} is available, but "
+#| "the version installed currently has been locally modified."
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
 msgstr ""
 "Dostępna jest nowa wersja (${NEW}) pliku konfiguracyjnego ${FILE}, ale "
 "obecna wersja została lokalnie zmodyfikowana."
@@ -146,6 +160,9 @@ msgid ""
 msgstr ""
 "Plik \"${dest_file}.${ERR_SUFFIX}\" posiada wpis o niepoprawnym scalaniu "
 "pliku konfiguracyjnego."
+
+#~ msgid "do a 3-way merge between available versions (experimental)"
+#~ msgstr "scalenie zmian pomiędzy 3 dostępnymi wersjami (eksperymentalne)"
 
 #~ msgid ""
 #~ "A new version of configuration file ${FILE} is available, but the version "

@@ -31,8 +31,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ucf 3.0025\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
-"POT-Creation-Date: 2014-05-07 01:28-0700\n"
-"PO-Revision-Date: 2014-06-13 21:05-0300\n"
+"POT-Creation-Date: 2018-02-16 15:56-0800\n"
+"PO-Revision-Date: 2018-02-19 23:45-0300\n"
 "Last-Translator: Matías Bellone <matiasbellone+debian@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: es\n"
@@ -93,8 +93,8 @@ msgstr "comparar a tres bandas las versiones disponibles"
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-msgid "do a 3-way merge between available versions (experimental)"
-msgstr "fusionar a tres bandas las versiones disponibles (experimental)"
+msgid "do a 3-way merge between available versions"
+msgstr "hacer una fusión a tres bandas de las versiones disponibles"
 
 #. Type: select
 #. Choices
@@ -116,15 +116,23 @@ msgstr ""
 
 #. Type: select
 #. Description
-#. Type: select
-#. Description
-#: ../templates:3002 ../templates:4002
+#: ../templates:3002
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
 msgstr ""
 "Hay una nueva versión («${NEW}») del archivo de configuración «${FILE}» , "
 "pero la versión que está instalada ha sido modificada localmente."
+
+#. Type: select
+#. Description
+#: ../templates:4002
+msgid ""
+"${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
+"available, but the version installed currently has been locally modified."
+msgstr ""
+"${BASENAME}: Hay una nueva versión («${NEW}») del archivo de configuración "
+"«${FILE}», pero la versión que está instalada ha sido modificada localmente."
 
 #. Type: note
 #. Description
@@ -157,14 +165,3 @@ msgid ""
 msgstr ""
 "El archivo «${dest_file}.${ERR_SUFFIX}» tiene un registro del fallo de "
 "fusión del archivo de configuración."
-
-#~ msgid ""
-#~ "A new version of configuration file ${FILE} is available, but the version "
-#~ "installed currently has been locally modified."
-#~ msgstr ""
-#~ "Hay una nueva versión del archivo de configuración ${FILE}, pero la "
-#~ "versión que está instalada ha sido modificada localmente."
-
-#~| msgid "What would you like to do about ${BASENAME}?"
-#~ msgid "What do you want to do about modified configration file ${BASENAME}?"
-#~ msgstr "¿Qué desea hacer con ${BASENAME}?"

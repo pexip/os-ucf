@@ -65,7 +65,7 @@ case "$1" in
 
     ### We could also do this on the fly. The following is from Tore
     ### Anderson:
-    
+
     #. /usr/share/debconf/confmodule
 
     ### find out what the user answered.
@@ -89,7 +89,7 @@ case "$1" in
 
     ### Note that some versions of debconf do not release stdin, so
     ### the following invocation of ucf may not work, since the stdin
-    ### is never coneected to ucfr.
+    ### is never connected to ucfr.
 
     ### now, invoke ucf, which will take care of the rest, and ask
     ### the user if he wants to update his file, if it is modified.

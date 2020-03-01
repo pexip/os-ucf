@@ -184,28 +184,13 @@ configuration file. This is accomplished by taking the configuration
 file and stashing it in a cache area during registration, and using
 diff3 during the install (the stashed file name is a munged version of
 the full path of the configuration file to avoid name space clashes).
-.I Note
-This option appeared in Version 0.8 of
-.B ucf,
-which was the first version released into unstable and ultimately
-.B Sarge.
-The version of ucf in woody does not contain this option.
 .TP
 .B "\-\-debconf\-ok"
 Indicate that it is ok for
 .I ucf
 to use an already running debconf instance for prompting (it has
 always been ok to use ucf when debconf is not running -- it shall
-invoke debconf as needed). Since historically maintainer scripts that
-used debconf and also ucf had to disable/cripple debconf before
-running ucf (since ucf did not prompt with debconf, and needed stdio
-available), ucf must be cautious when called from a maintainer script
-that uses debconf. This option lets it know that the maintainer script
-has not told debconf to stop, or redirected its stdio from debconf, or
-anything of the sort -- and thus it is safe to use debconf even when
-the script discovers that debconf is running.  Packages that call ucf
-with this option should take care to depend on version 0.28 or higher
-of ucf (the first to support use this option).
+invoke debconf as needed).
 .TP
 .B "\-\-debconf\-template  foo"
 Instruct ucf to use the named multiselect debconf template instead of
