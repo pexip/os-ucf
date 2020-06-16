@@ -1,3 +1,70 @@
+ucf (3.0043) unstable; urgency=high
+
+  * The argument to dpkg-divert needs to be the actual file name, not the
+    fully escaped regexp safe one.
+  * Bug fix: "dpkg-divert error when upgrading grub with diverted config",
+    thanks to debian@project-mindfuck.org.uk</a>; (Closes: #962818).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Mon, 15 Jun 2020 22:37:53 -0700
+
+ucf (3.0042) unstable; urgency=medium
+
+  * Thisis a strange behaviour difference between bash and dash
+  * Bug fix: "85: local: root.root: bad variable name&quot; when showing
+    differences", thanks to Christoph Biedl (Closes: #961222).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Fri, 22 May 2020 02:35:12 -0700
+
+ucf (3.0041) unstable; urgency=medium
+
+  * New bug fixing release
+  * Bug fix: "ucf breaks bacula autopkgtest: Job for
+    bacula-director.service failed", thanks to Paul Gevers
+    (Closes: #961144). while ucf should not alter the attributes of the
+    file if the destination exists (the maintainer can do anythjing she
+    wants after ucf is done), when there is no destination copy the
+    permissions from the source.
+
+ -- Manoj Srivastava <srivasta@debian.org>  Wed, 20 May 2020 22:56:42 -0700
+
+ucf (3.0040) unstable; urgency=medium
+
+  * This is a feature add release, for the most part
+  * Bug fix: "Add support for creating files with default SELinux
+    context", thanks to Christian Göttsche (Closes: #949314).
+  * Bug fix: "please consider merge request #1 adding
+    ucf_helper_functions", thanks to Marc Haber (Closes: #930130).
+  * Bug fix: "ucf has /bin/bash shebangs but does not depend on bash",
+    thanks to James Le Cuirot (Closes: #952448). It actually does not need
+    bash, so this was easy to do.
+  * Bug fix: "should respect dpkg-divert", thanks to Timothy G Abbott
+    (Closes: #477773).
+  * Bug fix: "[INTL:nl] Dutch translation of debconf messages", thanks to
+    Frans Spiesschaert (Closes: #926661).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Tue, 19 May 2020 23:47:10 -0700
+
+ucf (3.0039) unstable; urgency=medium
+
+  * NMU ack. Thanks to Helge Kreutzmann
+  * Updated thee VCS-* links in control file to salsa
+  * Updated the standards version to 4.3.0, no changes needed
+  * Bug fix: "ucf shouldn't change the file permissions", thanks to
+    Laurent Bigonville (Closes: #935439).
+  * Updated the debhelper dependency usding the new debhelper-compat
+    dependency convention.
+  * Bug fix: "ucf with -n as first argument results in error", thanks to
+    Ian Kelling (Closes: #892301).
+  * Bug fix: "Please load file names into environment when starting
+    &quot;a new shell to examine the situation&quot; (DPKG_CONFFILE_OLD,
+    DPKG_CONFFILE_NEW)", thanks to Christoph Biedl (Closes: #951006). mI
+    changed the variable names to not stomp over tyhe dpkg namespace; the
+    variables are actuall UCF_*
+  * Bug fix: "[INTL:nl] Dutch translation of debconf messages", thanks to
+    Frans Spiesschaert (Closes: #918255).
+
+ -- Manoj Srivastava <srivasta@debian.org>  Mon, 11 May 2020 20:53:59 -0700
+
 ucf (3.0038+nmu1) unstable; urgency=low
 
   * Non-maintainer upload.

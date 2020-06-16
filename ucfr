@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/sh
 #                               -*- Mode: Sh -*-
 # ucfr ---
 # Author           : Manoj Srivastava ( srivasta@glaurung.internal.golden-gryphon.com )

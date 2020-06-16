@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #                               -*- Mode: Sh -*-
 # updateConfFile.sh ---
 # Author           : Manoj Srivastava ( srivasta@glaurung.green-gryphon.com )
@@ -82,8 +82,8 @@ run_diff()
     local new_file="$4"
 
     # Note: get_file_metadata not in quotes to ignore "\n" characters
-    local old_file_label=$(get_file_metadata "$old_file")
-    local new_file_label=$(get_file_metadata "$new_file")
+    local old_file_label="$(get_file_metadata "$old_file")"
+    local new_file_label="$(get_file_metadata "$new_file")"
 
     [ -e "$old_file" ] || old_file=/dev/null
     [ -e "$new_file" ] || new_file=/dev/null
@@ -159,6 +159,7 @@ Options:
      -d[n], --debug=[n]      Set the Debug level to N. Please note there must
                              be no spaces before the debug level
      -n,     --no-action     Dry run. No action is actually taken.
+     -P foo, --package foo   Don't follow dpkg-divert diversions by package foo.
      -v,     --verbose       Make the script verbose
              --three-way     Register this file in the cache, and turn on the
                              diff3 option allowing the merging of maintainer
@@ -299,16 +300,22 @@ replace_conf_file () {
 		echo >&2 "Not saving ${real_file}, since it was unmodified"
 	    fi
 	else
-	    $action cp -pf "${real_file}" "${real_file}.${OLD_SUFFIX}"
+	    $action cp -pf $selinux "${real_file}" "${real_file}.${OLD_SUFFIX}"
 	fi
     fi
-    $action cp -pf "$new_file" "${real_file}"
+    if [ -e "${real_file}" ]; then
+        # Do not change the permissions and attributes of the destination
+        $action cp -f $selinux "$new_file" "${real_file}"
+    else
+        # No destination file exists
+        $action cp -pf $selinux "$new_file" "${real_file}"
+    fi
     replace_md5sum;
 }
 
 # Escape single quotes in the arguments passed in
 quote_single() {
-    echo "$1" | sed -e "s,','\\\\'',g"
+    printf "%s\n" "$1" | sed -e "s,','\\\\'',g"
 }
 
 
@@ -324,6 +331,7 @@ quote_single() {
 docmd='YES'
 action='withecho'
 action=
+selinux=''
 DEBUG=0
 VERBOSE=''
 statedir='/var/lib/ucf';
@@ -341,7 +349,7 @@ done
 # Note that we use `"$@"' to let each command-line parameter expand to a
 # separate word. The quotes around `$@' are essential!
 # We need TEMP as the `eval set --' would nuke the return value of getopt.
-TEMP=$(getopt -a -o hs:d::D::nv -n "$progname" \
+TEMP=$(getopt -a -o hs:d::D::nZv -n "$progname" \
       --long help,src-dir:,sum-file:,dest-dir:,debug::,DEBUG::,no-action,purge,verbose,three-way,debconf-ok,debconf-template:,state-dir: \
              -- "$@")
 
@@ -353,6 +361,8 @@ while true ; do
 	-h|--help) usageversion;                        exit 0 ;;
 	-n|--no-action) action='echo'; docmd='NO';      shift  ;;
 	-v|--verbose) VERBOSE=1;                        shift  ;;
+	-P|--package)
+	    opt_package="$2";			       shift 2 ;;
 	-s|--src-dir)
 	    opt_source_dir="$2";                       shift 2 ;;
 	--sum-file)
@@ -372,6 +382,7 @@ while true ; do
         -p|--purge) PURGE=YES;                         shift   ;;
        --three-way) THREEWAY=YES;                       shift   ;;
        --debconf-ok) DEBCONF_OK=YES;                    shift   ;;
+       -Z) selinux='-Z';                                shift   ;;
 	--)  shift ;                                   break   ;;
 	*) echo >&2 "Internal error!" ; exit 1 ;;
     esac
@@ -427,9 +438,23 @@ else
     fi
 fi
 
+# Follow dpkg-divert as though we are installed as part of $opt_package
+divert_line=$(dpkg-divert --list "$dest_file")
+if [ -n "$divert_line" ]; then
+   if [ echo "$divert_line" | grep "^local" ]; then
+       # local diversion; pick something not in the package namespace
+       divert_package="LOCAL"
+   else
+       # extract the name of the diverted package.
+       # The fact that this requires output parsing is bug #485012
+       divert_package=$(dpkg-divert --listpackage "$dest_file")
+   fi
 
+   if [ "$divert_package" != "$opt_package" ]; then
+       dest_file=$(dpkg-divert --truename "$dest_file")
+   fi
+fi
 safe_dest_file=$(echo "$dest_file" | perl -nle 'print "\Q$_\E\n"')
-
 
 
 ######################################################################
@@ -1084,6 +1109,8 @@ else
                 # </dev/tty). The easiest way do this from a shell is
                 # probably with /bin/ps.
                 if ps -o stat= --ppid $$ | grep -q '+'; then
+                    export UCF_CONFFILE_OLD="$dest_file"
+                    export UCF_CONFFILE_NEW="$new_file"
 		    bash >/dev/tty </dev/tty || true
                 elif [ -n "$DISPLAY" ]; then
                     x-terminal-emulator || true
