@@ -155,6 +155,10 @@ file removals are still the responsibility of the calling package.
 .B "\-v, \-\-verbose"
 Make the script be very verbose about setting internal variables.
 .TP
+.B "\-P foo, \-\-package foo"
+Don't follow dpkg-divert diversions by package foo when updating
+configuration files.
+.TP
 .B "\-s foo, \-\-src\-dir  foo"
 Set the source directory (historical md5sums are expected to live in
 files and sub directories of this directory) to foo. By default, the
@@ -207,6 +211,9 @@ option is also set.
 Set the state directory to /path/to/dir instead of the default
 .I /var/lib/ucf.
 Used mostly for testing.
+.TP
+.B "\-Z"
+Set SELinux security context of destination file to default type.
 .SH USAGE
 The most common case usage is pretty simple: a single line invocation
 in the postinst on configure, and another single line in the postrm to
@@ -296,7 +303,12 @@ if set silently retains the installed file.
 is only applicable when the installed destination file does not exist
 (perhaps due to user removal),and forces ucf to recreate the missing
 file (the default behaviour is to honor the users wishes and not
-recreate the locally deleted file).
+recreate the locally deleted file). Additionally, when ucf creates an
+inferior shell, it populates the variables
+.B UCF_CONFFILE_NEW
+and
+.B UCF_CONFFILE_OLD
+which are useful for inspecting the changes.
 .SH FILES
 This script creates the file
 .I new_file.md5sum,

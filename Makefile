@@ -1,6 +1,6 @@
 ############################ -*- Mode: Makefile -*- ###########################
-## Makefile<ucf> --- 
-## Author           : Manoj Srivastava ( srivasta@glaurung.green-gryphon.com ) 
+## Makefile<ucf> ---
+## Author           : Manoj Srivastava ( srivasta@glaurung.green-gryphon.com )
 ## Created On       : Tue Nov 18 22:00:27 2003
 ## Created On Node  : glaurung.green-gryphon.com
 ## Last Modified By : Manoj Srivastava
@@ -8,15 +8,16 @@
 ## Last Machine Used: glaurung.internal.golden-gryphon.com
 ## Update Count     : 6
 ## Status           : Unknown, Use with caution!
-## HISTORY          : 
-## Description      : 
-## 
+## HISTORY          :
+## Description      :
+##
 ###############################################################################
 prefix    = $(DESTDIR)
 package   = ucf
 
 ETCDIR    = $(prefix)/etc
 BINDIR    = $(prefix)/usr/bin
+USHAREDIR = $(prefix)/usr/share/$(package)
 DEBLIBDIR = $(prefix)/var/lib/$(package)
 DEBDOCDIR = $(prefix)/usr/share/doc/$(package)
 MANDIR    = $(prefix)/usr/share/man/
@@ -31,12 +32,12 @@ make_directory  := /usr/bin/install -p -d -o root -g root -m 755
 all build: check
 
 check:
-	bash -n  ucf
-	bash -n  ucfr
+	sh -n  ucf
+	sh -n  ucfr
 	perl -wc ucfq
-	bash -n  debian/ucf.preinst
-	bash -n  debian/ucf.postinst
-	bash -n  debian/ucf.postrm
+	sh -n  debian/ucf.preinst
+	sh -n  debian/ucf.postinst
+	sh -n  debian/ucf.postrm
 
 install:
 	$(make_directory)   $(BINDIR)
@@ -44,6 +45,7 @@ install:
 	$(make_directory)   $(MAN1DIR)
 	$(make_directory)   $(MAN5DIR)
 	$(make_directory)   $(DEBLIBDIR)
+	$(make_directory)   $(USHAREDIR)
 	$(make_directory)   $(DEBDOCDIR)/examples
 	$(install_program)  ucf               $(BINDIR)
 	$(install_file)     ucf.1             $(MAN1DIR)
@@ -58,15 +60,18 @@ install:
 	$(install_file)     lcf.1             $(MAN1DIR)
 	gzip -9fq           $(MAN1DIR)/lcf.1
 	$(install_file)     ucf.conf.5        $(MAN5DIR)
-	gzip -9fq           $(MAN5DIR)/ucf.conf.5 
+	gzip -9fq           $(MAN5DIR)/ucf.conf.5
 	$(install_file)     ucf.conf          $(ETCDIR)
+	$(install_program)  ucf_helper_functions.sh $(USHAREDIR)
 	$(install_file)     debian/changelog  $(DEBDOCDIR)/changelog
 	gzip -9frq          $(DEBDOCDIR)
 # make sure the copyright file is not compressed
 	$(install_file)     debian/copyright  $(DEBDOCDIR)/copyright
 	$(install_file)     examples/postinst $(DEBDOCDIR)/examples/
 	$(install_file)     examples/postrm   $(DEBDOCDIR)/examples/
+	cp -a               examples/ucf_helper_functions $(DEBDOCDIR)/examples/
+	chown -R root:root $(DEBDOCDIR)/examples/ucf_helper_functions
+	chmod -R ugo+r      $(DEBDOCDIR)/examples/ucf_helper_functions
 
 clean distclean:
 	@echo nothing to do for clean
-
