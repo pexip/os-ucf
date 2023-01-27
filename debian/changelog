@@ -1,3 +1,34 @@
+ucf (3.0043+nmu1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Oliver O ]
+  * Fix syntax error, respect diverted conffiles (Closes: #979354, #999582,
+    #1006313)
+
+  [ Ville Skyttä ]
+  * refactor: Use `grep -E` instead of `egrep` (Closes: #1019324).
+
+  [ Gioele Barabucci ]
+  * d/control: Remove outdated version constraints
+  * d/control: Depend on debconf|debconf-2.0 (Closes: #1017830)
+
+  [ Debian Janitor ]
+  * d/copyright: use spaces rather than tabs to start continuation lines.
+  * d/control: Bump debhelper from old 12 to 13
+  * d/control: Update standards version to 4.6.1, no changes needed
+  * d/control: Fix field name cases (VCS-Browser => Vcs-Browser, VCS-Git =>
+    Vcs-Git)
+
+  [ Arnaud Rebillout ]
+  * d/control: Drop coreutils dependency
+  * d/copyright: Update upstream URL
+  * d/lintian-overrides: Update
+  * Fix typo (histotical -> historical)
+  * Fix unrecognized option -P|--package
+
+ -- Arnaud Rebillout <arnaudr@kali.org>  Fri, 27 Jan 2023 20:29:51 +0700
+
 ucf (3.0043) unstable; urgency=high
 
   * The argument to dpkg-divert needs to be the actual file name, not the
