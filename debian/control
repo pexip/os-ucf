@@ -8,7 +8,7 @@ XSBC-Pexip-Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
 Build-Depends: debhelper-compat (=12)
 Build-Depends-Indep: po-debconf, gettext
 Standards-Version: 4.3.0
-XS-Pexip-Upstream: http://deb.debian.org/debian/ bullseye
+XS-Pexip-Upstream: http://deb.debian.org/debian/ bookworm
 
 Package: ucf
 Architecture: all
