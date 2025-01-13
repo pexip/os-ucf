@@ -1,3 +1,15 @@
+ucf (3.0043+nmu1+pexip24u4+deb12u1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Mon, 13 Jan 2025 17:44:51 +0000
+
+ucf (3.0043+nmu1+deb12u1) bookworm; urgency=medium
+
+  * Initialise variable subsequently passed to eval. (Closes: #1089015)
+
+ -- Mark Hindley <leepen@debian.org>  Fri, 20 Dec 2024 07:39:40 +0000
+
 ucf (3.0043+nmu1+pexip24u3) pexip-bookworm; urgency=medium
 
   * New versioning scheme

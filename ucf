@@ -342,6 +342,7 @@ NEW_SUFFIX="ucf-new"
 OLD_SUFFIX="ucf-old"
 ERR_SUFFIX="merge-error"
 # save up the cmdline with proper quoting/escaping
+saved=
 for arg in "$@"; do
     saved="${saved:+$saved }'$(quote_single "$arg")'"
 done
