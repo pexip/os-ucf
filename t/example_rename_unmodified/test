@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -e
+
+# Test rename example from examples/README.md
+
+conffile=/tmp/test.conf
+new_conffile=/tmp/test2.conf
+DPKG_MAINTSCRIPT_PACKAGE=test-package
+
+## Initial setup
+${UCF_TEST_BINDIR}ucf input.conf $conffile 2>&1
+${UCF_TEST_BINDIR}ucfr $DPKG_MAINTSCRIPT_PACKAGE $conffile
+
+## examples/README.md
+# Rename, if it exists
+[ -f $conffile ] && cp $conffile $new_conffile
+
+${UCF_TEST_BINDIR}ucf input.conf $new_conffile 2>&1
+${UCF_TEST_BINDIR}ucfr $DPKG_MAINTSCRIPT_PACKAGE $new_conffile
+
+if [ -f $conffile ]; then
+    rm $conffile
+else
+    # The old conffile had already been deleted, do the same for the new one.
+    rm $new_conffile
+fi
+
+# Purge from ucf state.
+${UCF_TEST_BINDIR}ucf --purge $conffile && ${UCF_TEST_BINDIR}ucfr --purge $DPKG_MAINTSCRIPT_PACKAGE $conffile
+

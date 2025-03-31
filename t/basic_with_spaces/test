@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# Test basic install of file with spaces. See #808277
+
+${UCF_TEST_BINDIR}ucf spaced\ input.conf /tmp/spaced\ input.conf 2>&1
+${UCF_TEST_BINDIR}ucfr spaceconf /tmp/spaced\ input.conf 2>&1
+${UCF_TEST_BINDIR}ucfr --purge spaceconf /tmp/spaced\ input.conf 2>&1

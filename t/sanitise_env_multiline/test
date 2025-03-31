@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+# Test multiline environment variable sanitisation. See #1089043
+
+export MULTI_LINE='first
+second
+line that should not #choke
+last'
+
+${UCF_TEST_BINDIR}ucf input.conf $UCF_TEST_TARGET/input.conf 2>&1

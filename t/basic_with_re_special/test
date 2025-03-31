@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+# Test basic install of file with BRE special characters
+# Note: +?{ are only special in ERE and shouldn't be escaped.
+
+${UCF_TEST_BINDIR}ucf 'bre[]+?{input.conf' '/tmp/bre[]+?{input.conf' 2>&1
+${UCF_TEST_BINDIR}ucfr breconf '/tmp/bre[]+?{input.conf' 2>&1
+${UCF_TEST_BINDIR}ucfr --purge breconf '/tmp/bre[]+?{input.conf' 2>&1

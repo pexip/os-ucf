@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+# Test invalid option handling.
+
+! ${UCF_TEST_BINDIR}ucf --unsupported /dev/null $UCF_TEST_TARGET/conffile 2>&1
+! ${UCF_TEST_BINDIR}ucfr --unsupported /dev/null $UCF_TEST_TARGET/conffile 2>&1

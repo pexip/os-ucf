@@ -1,0 +1,26 @@
+Testsuite for ucf
+=================
+
+The testsuite is run with ./run. It utilises unshare(1) to establish a separate
+mount namespace for each test; /var/cache/debconf, /var/lib/ucf and
+$UCF_TEST_TARGET are each mounted as a tmpfs. This prevents the tests from
+interfering with the host system whilst not requiring elevated privileges.  If
+the call to unshare(1) fails, the test is skipped with a warning.
+
+Each test is contained in a separate subdirectory. The files in each test
+directory are:-
+
+ - test			an executable that runs the test. Installations and
+   			filesystem modifications by ucf and friends should be made
+			beneath the $UCF_TEST_TARGET directory.
+
+ - expected/output	the expected stdout of `test`.
+
+ - expected/target	the expected contents of $UCF_TEST_TARGET after the script is run.
+
+ - expected/state	the expected contents of /var/lib/ucf after the script has run.
+
+By default, the tests are run using the scripts in the source root
+directory. This can be overridden with the UCF_TEST_BINDIR environment
+variable. Ensure it ends with a path separator ('/'). If the variable is set to
+null (UCF_TEST_BINDIR=), the scripts will be searched in PATH.

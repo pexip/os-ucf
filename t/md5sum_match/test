@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# Test md5sum
+
+echo '# Historical version' | tee $UCF_TEST_TARGET/match.conf \
+    | md5sum | awk '{print $1}' > match.conf.md5sum
+${UCF_TEST_BINDIR}ucf ./match.conf $UCF_TEST_TARGET/match.conf 2>&1

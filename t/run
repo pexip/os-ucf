@@ -1,0 +1,71 @@
+#!/bin/sh
+
+set -e
+
+if [ "$(uname -s)" = 'GNU' ] ; then
+    echo "Sorry, testsuite requires unshare(1). GNU Hurd patches welcome."
+    exit
+fi
+
+if ischroot ; then
+    echo "Sorry, testsuite uses unshare(2) which is not permitted within a chroot."
+    exit
+fi
+
+cd "$(dirname "$0")"
+
+if [ $# -eq 0 ] ; then
+    # Run all if none specified
+    set -- $(find . -name test -executable -exec dirname '{}' ';')
+fi
+
+export DEB_GREP_ENABLE_STRAY_BACKSLASH_WARN=1 # Ensure #1019326 is visible
+export DEBIAN_FRONTEND=noninteractive
+export UCF_TEST_TARGET=/tmp
+export UCF_TEST_BINDIR="${UCF_TEST_BINDIR=../../}"
+
+report(){
+    total=$1
+    cat <<EOF
+Testsuite report:
+  Success: ${success:=0}
+  Skipped: ${skip:=0}
+  Failed: $(($1 - success - skip))
+  TOTAL: $total
+EOF
+    [ $((success+skip)) -eq "$total" ] # set exit status
+}
+
+t_error(){
+    case $? in
+	255) echo "ERROR: test $1 FAILED" >&2; return ;;
+	1) echo "WARNING: unshare(1) failed, skipping test" >&2 ;;
+	*) echo  "WARNING: unexpected exit status $?, skipping test" >&2 ;;
+    esac
+    skip=$((skip+1))
+}
+
+trap 'report $#' EXIT
+
+for tdir do
+    echo "Running $tdir" >&2
+    unshare -rmw "$tdir" sh  <<'EOF' || { t_error "$tdir" && continue; }
+set -e
+trap '[ $? -eq 0 ] || exit 255' EXIT
+mount -t tmpfs tmpfs /var/cache/debconf
+if [ -d /var/lib/ucf ] ; then
+ mount -t tmpfs tmpfs /var/lib/ucf
+else
+ udir=$(mktemp -d)
+ wdir=$(mktemp -d)
+ trap 'rm -rf $udir $wdir' EXIT
+ mount -t overlay none -o lowerdir=/var/lib,upperdir=$udir,workdir=$wdir /var/lib
+ mkdir -p /var/lib/ucf
+fi
+mount -t tmpfs tmpfs /tmp
+./test | diff -u expected/output -
+diff -urN expected/target $UCF_TEST_TARGET
+diff -urN expected/state /var/lib/ucf
+EOF
+    success=$((success+1))
+done

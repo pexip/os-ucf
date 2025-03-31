@@ -1,0 +1,8 @@
+ucf (3.0044) unstable; urgency=medium
+
+  * The lcf binary was broken, non-functional and
+    https://codesearch.debian.net revealed no usage elsewhere in the
+    archive. It has been removed together with its manpage.
+
+ -- Mark Hindley <leepen@debian.org>  Mon, 25 Nov 2024 10:06:08 +0000
+

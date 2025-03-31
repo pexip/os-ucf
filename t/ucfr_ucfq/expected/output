@@ -1,0 +1,10 @@
+Configuration file                            Package             Exists Changed
+/tmp/test.conf                                test-package        Yes     No
+Configuration file                            Package             Exists Changed
+/tmp/test2.conf                               test-package2
+Configuration file                            Package             Exists Changed
+/tmp/test.conf                                test-package        Yes    Yes
+ucfr: Association belongs to test-package2, not another-package
+ucfr: Aborting
+Configuration file                            Package             Exists Changed
+/tmp/test2.conf

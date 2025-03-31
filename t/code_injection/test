@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+# Test exposing code injection via inherited variable.
+
+saved='$(ls -l)' ${UCF_TEST_BINDIR}ucf input.conf $UCF_TEST_TARGET/input.conf 2>&1

@@ -1,0 +1,5 @@
+ucf		/usr/bin
+ucf.conf        /etc
+ucf_library.sh  /usr/share/ucf
+ucfq            /usr/bin
+ucfr            /usr/bin

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# Test no reinstall after delete.
+
+${UCF_TEST_BINDIR}ucf input.conf /tmp/input.conf 2>&1
+rm /tmp/input.conf
+${UCF_TEST_BINDIR}ucf input.conf /tmp/input.conf 2>&1

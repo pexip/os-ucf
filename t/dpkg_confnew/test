@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+# Test DPKG_FORCE=confnew
+
+touch /tmp/input.conf
+DPKG_FORCE=confnew ${UCF_TEST_BINDIR}ucf input.conf /tmp/input.conf 2>&1

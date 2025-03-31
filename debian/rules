@@ -1,3 +1,11 @@
 #!/usr/bin/make -f
 %:
 	dh $@
+
+# Override requires the relevant line number, so generate dynamically.
+execute_before_dh_lintian: debian/ucf.lintian-overrides.in
+	cp $< $(basename $<)
+	awk '/-e \/usr\/share\/debconf\/confmodule/ { printf "ucf: debconf-is-not-a-registry [usr/bin/ucf:%d]\n", FNR }' ucf >> $(basename $<)
+
+override_dh_perl:
+	dh_perl -d

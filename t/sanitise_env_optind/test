@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+# Dash fails attempts to unset OPTIND. See #985478.
+
+export OPTIND=1
+
+${UCF_TEST_BINDIR}ucf input.conf $UCF_TEST_TARGET/input.conf 2>&1
+${UCF_TEST_BINDIR}ucfr package $UCF_TEST_TARGET/input.conf 2>&1
