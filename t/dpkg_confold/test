@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# Test DPKG_FORCE=confold (no overwrite).
+
+touch /tmp/input.conf
+${UCF_TEST_BINDIR}ucf /tmp/input.conf /tmp/input.conf 2>&1
+DPKG_FORCE=confold ${UCF_TEST_BINDIR}ucf input.conf /tmp/input.conf 2>&1

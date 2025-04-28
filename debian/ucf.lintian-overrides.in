@@ -1,0 +1,2 @@
+ucf: no-debconf-config
+ucf: unused-debconf-template ucf/title [templates:2]

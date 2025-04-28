@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+# Test remove example from examples/README.md
+
+conffile=/tmp/test.conf
+DPKG_MAINTSCRIPT_PACKAGE=test-package
+
+${UCF_TEST_BINDIR}ucf input.conf $conffile 2>&1
+${UCF_TEST_BINDIR}ucfr $DPKG_MAINTSCRIPT_PACKAGE $conffile
+
+IFS=: read -r cf pkg exists modified <<EOF
+$(${UCF_TEST_BINDIR}ucfq -w $conffile)
+EOF
+# Sanity checks
+[ "$cf" = "$conffile" ] || error_exit # Bad, should never happen
+[ "$pkg" = "$DPKG_MAINTSCRIPT_PACKAGE" ] || return # Not our conffile
+# Remove $conffile if it exists and is unmodified.
+if [ "$exists" = 'Yes' ] && [ "$modified" = 'No' ]; then
+    rm $conffile 
+fi
+# Purge from ucf state.
+${UCF_TEST_BINDIR}ucf --purge $conffile && ${UCF_TEST_BINDIR}ucfr --purge $DPKG_MAINTSCRIPT_PACKAGE $conffile
+

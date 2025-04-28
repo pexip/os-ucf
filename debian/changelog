@@ -1,3 +1,196 @@
+ucf (3.0051) unstable; urgency=medium
+
+  [ Mark Hindley ]
+  * d/control: bump Standards Version (no changes).
+  * ucfq: fix typo in POD.
+
+  [ Carles Pina i Estany ]
+  * Update po-debconf Catalan translation
+
+ -- Mark Hindley <leepen@debian.org>  Mon, 31 Mar 2025 10:25:44 +0100
+
+ucf (3.0050) unstable; urgency=medium
+
+  [ Bjarni Ingi Gislason ]
+  * ucf.conf.5: editorial changes (Closes: #1096179).
+
+  [ Mark Hindley ]
+  * Makefile: don't run check in all recipe, fixes nocheck build profile.
+  * t/basic_with_re_special/: fix -- don't embed absolute build paths.
+    (Closes: #1098327)
+  * t/run: diff treat missing files as empty to handle absent expected/
+    directories. Thanks to Dirk Mayer <dirk.mayer@siemens.com>
+
+ -- Mark Hindley <leepen@debian.org>  Wed, 19 Feb 2025 12:20:37 +0000
+
+ucf (3.0049) unstable; urgency=medium
+
+  * Workaround dash failure to unset OPTIND, see #985478. (Closes: #1094470)
+  * debian/: run wrap-and-sort -tas.
+  * d/ucf.lintian-overrides: generate debconf-is-not-a-registry override
+    dynamically at compile time to ensure correct line number.
+  * ucf, ucfr: cleanup comments, excess whitespace and remove unused
+    commented code.
+  * ucfr: remove unnecessary fiddling with set +/-e.
+  * Expand and update examples (Closes: #878904)
+  * Manpage cleanups.
+    Thanks to Bjarni Ingi Gislason <bjarniig@simnet.is>
+    (Closes: #1093889, #1093894)
+  * man/ucf.1: improve SEE ALSO formatting.
+  * man/ucf.1: add reference to dh_ucf(1).
+  * t/run:
+    - distinguish between test failure (FAIL) and test unshare
+    error (SKIP).
+    - fail unless all run tests have passed or been skipped.
+    - improve testsuite report output.
+  * t/dpkg_confdef: add test of DPKG_FORCE=confdef override of other
+    settings.
+  * t/example_remove: add test of remove example.
+  * t/example_rename_*: add tests of rename examples.
+  * Rename t/sanitise_env to t/sanitise_env_multiline.
+  * t/sanitise_env_optind: add testcase for #1094470.
+
+ -- Mark Hindley <leepen@debian.org>  Tue, 28 Jan 2025 13:57:24 +0000
+
+ucf (3.0048) unstable; urgency=medium
+
+  * ucf: fix handling of DPKG_FORCE confdef: -- vset() rejects empty string.
+    (Closes: #1093156)
+  * Add test for DPKG_FORCE=confdef.
+
+ -- Mark Hindley <leepen@debian.org>  Wed, 15 Jan 2025 21:43:31 +0000
+
+ucf (3.0047) unstable; urgency=medium
+
+  * d/rules: specify dh_perl -h to avoid dependency on full perl.
+  * ucfq: cleanup and modernise perl syntax:-
+    - always use 3 argument open().
+    - avoid bareword filehandles.
+    - always return explicitly.
+    - don't return explicit undef from functions.
+    - use warnings.
+    - don't use indirect new syntax.
+    - explicitly close filehandles.
+    - make usage output consistent.
+    - fix help short option POD.
+    - fix POD typo.
+    - add option to print version.
+    - remove unused _classobj().
+  * ucf: rework force_conff* handling
+    - options are not and have never been settable from command line.
+    - handle force_conff{old,new} in parallel for config file and environment.
+      (Closes: #980996)
+  * ucf: Support DPKG_FORCE options. (Closes: #925375, #867511)
+  * ucf cleanups:-
+    - remove stray ( in verbose print of command.
+    - remove unnecessary fiddling with set ±e.
+    - remove duplicate inner test for $docmd = YES.
+    - use ps tpgid directly to be explicit about what is being tested rather
+      than grepping the output of ps.
+    - preserve environment localisation variables.
+    - preserve sdiff and diff3 format with non-breaking spaces, if available.
+      Requires UTF-8 aware wrap() from libtext-wrapi18n-perl. (Closes: #659375)
+  * t/confold: register file before testing no overwrite.
+  * t/: add tests for DPKG_FORCE handling.
+  * Makefile: add mancheck recipe.
+  * man/ucf.1: document DPKG_FORCE.
+  * man/ucf.conf.5:
+    - file is POSIX (not bourne) shell snippet.
+    - update to reflect current usage.
+
+ -- Mark Hindley <leepen@debian.org>  Tue, 14 Jan 2025 12:07:58 +0000
+
+ucf (3.0046) unstable; urgency=medium
+
+  * Move manpage sources to ./man subdir.
+  * ucfq:
+    - add myself to authors and copyright.
+    - remove obsolete caveats
+    - merge ucfq.1 changes back into POD source.
+    - POD: don't export INTERNALS.
+    - add SEE ALSO POD section.
+    - update POD; usage in postrm is now well established.
+  * man/ucfq.1: remove, POD in ucfq is definitive source.
+  * Makefile: add man/ucfq.1 recipe.
+  * Install using debhelper; supports R³: no. (Closes: #1089459)
+  * d/control: specify R³: no.
+  * ucf: remove unused quote_single().
+  * ucf, ucfr:
+    - sanitise environment on startup
+    - when sanitising the environment, handle multiline variables;
+      thanks to Colin Watson <cjwatson@debian.org>
+    - comment out subsequently overridden action='withecho'.
+    - eval args as string ($*) rather than array ($@).
+    - update comments.
+  * testsuite:
+    - add test for sanitisation of multiline variables.
+    - add basic noaction test.
+  * Remove obsolete bolierplate, comments and noop code from mainstscripts.
+  * d/ucf.postinst: doesn't use debconf itself, so don't source confmodule.
+  * Move obsolete d/ChangeLog to d/ChangeLog.old.
+
+ -- Mark Hindley <leepen@debian.org>  Thu, 19 Dec 2024 17:10:26 +0000
+
+ucf (3.0045) unstable; urgency=medium
+
+  * Back out new environment sanitisation for now. (Closes: #1089043)
+
+ -- Mark Hindley <leepen@debian.org>  Wed, 04 Dec 2024 21:36:34 +0000
+
+ucf (3.0044) unstable; urgency=medium
+
+  * Acknowledge NMU from Arnaud Rebillout <arnaudr@kali.org>, with thanks.
+  * d/control:
+    - take over maintenance with thanks to Manoj Srivastava for his
+    previous work. (Closes: #1086847)
+    - bump Standards Version (no changes).
+    - update Vcs URLs.
+    - add missing Depends: procps, ${perl:Depends}
+  * d/copyright: update.
+  * Add initial testsuite (requires unshare(1)).
+  * Replace setq() with new function vset(), not utilising eval.
+  * Reduce use of eval to a single instance on the output of getopt(1) in
+    quoted mode.
+  * Sanitise environment on startup.
+  * Use grep BREs, with a common function for escaping. (Closes: #1019326)
+  * ucf:
+    - don't print empty lines on stderr. (Closes: #816220)
+    - fix quoting of variables (shellcheck SC2086). (Closes: #808277)
+    - separate local declaration and assignment (SC2155).
+    - rationalise handling of VERBOSE.
+    - avoid double negative in test.
+  * ucfr:
+    - remove unusued code.
+    - remove obsolete error check, errexit already set.
+    - silently ignore unused DEBUG.
+  * Makefile:
+    - add shellcheck recipe.
+    - when building, update versions from d/changelog.
+  * Add Romanian debconf translation.
+    Thanks to "Remus-Gabriel Chelu" <remusgabriel.chelu@disroot.org>
+    (Closes: #1033751)
+  * Updated Swedish debconf translations.
+    Thanks to Martin Bagge / brother <brother@persilja.net> (Closes: #1055746)
+  * Updated Italian debconf translations.
+    Thanks to Ceppo <ceppo@oziosi.org> (Closes: #1063493)
+  * ucfq.1: groff fixes.
+    Thanks to Bjarni Ingi Gislason <bjarniig@simnet.is> (Closes: #1072323)
+  * ucf.conf: is a POSIX, not bourne script fragment.
+  * Update ./examples to be more recent; partially addresses: #878904.
+  * Remove unused ucf_helper_functions.sh and examples/ChangeLog.
+  * Remove obsolete examples/ucf_helper_functions/.
+  * Cleanup code:
+    - rewrite syntax undefined in POSIX.
+    - remove unnecessary trailing ';'.
+    - move common functions to new ucf_library.sh.
+    - remove obsolete x"$var" prefix to test expressions.
+    - remove obsolete header boilerplate.
+  * Rename obsolete ChangeLog to ChangeLog.old.
+  * Drop broken lcf and its manpage.
+  * d/ucf.lintian-overrides: update and remove unused.
+
+ -- Mark Hindley <leepen@debian.org>  Tue, 26 Nov 2024 11:07:16 +0000
+
 ucf (3.0043+nmu1+pexip24u4+deb12u1) pexip; urgency=medium
 
   * New upstream release

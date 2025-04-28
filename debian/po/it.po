@@ -1,13 +1,16 @@
 # translation of ucf_1.18_templates.po to italian
 # Copyright Luca Bruno <lucab@debian.org>, 2005-2010.
+#
+# Ceppo <ceppo@oziosi.org>, 2024.
+
 msgid ""
 msgstr ""
 "Project-Id-Version: ucf_1.18_templates\n"
 "Report-Msgid-Bugs-To: ucf@packages.debian.org\n"
 "POT-Creation-Date: 2018-02-16 15:56-0800\n"
-"PO-Revision-Date: 2007-09-19 01:10-0500\n"
-"Last-Translator: Luca Bruno <lucab@debian.org>\n"
-"Language-Team:  Italian <tp@lists.linux.it>\n"
+"PO-Revision-Date: 2024-02-08 00:00+0000\n"
+"Last-Translator: Ceppo <ceppo@oziosi.org>\n"
+"Language-Team:  Italian <debian-l10n-italian@lists.debian.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +38,7 @@ msgstr "installare la versione del manutentore del pacchetto"
 #. Choices
 #: ../templates:3001 ../templates:4001
 msgid "keep the local version currently installed"
-msgstr "mantenere la propria versione attualmente installata"
+msgstr "mantenere la versione attualmente installata"
 
 #. Type: select
 #. Choices
@@ -60,16 +63,14 @@ msgstr "mostrare affiancate le differenze tra le versioni"
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
 msgid "show a 3-way difference between available versions"
-msgstr "mostrare le differenze tra le 3 versioni del file disponibili"
+msgstr "mostrare le differenze tra le tre versioni disponibili"
 
 #. Type: select
 #. Choices
 #. Translators, please keep translations *short* (less than 65 columns)
 #: ../templates:3001
-#, fuzzy
-#| msgid "show a 3-way difference between available versions"
 msgid "do a 3-way merge between available versions"
-msgstr "mostrare le differenze tra le 3 versioni del file disponibili"
+msgstr "unire le tre versioni disponibili"
 
 #. Type: select
 #. Choices
@@ -86,35 +87,29 @@ msgstr "eseguire una nuova shell per esaminare la situazione"
 #. Description
 #: ../templates:3002 ../templates:4002
 msgid "What do you want to do about modified configuration file ${BASENAME}?"
-msgstr "Cosa si vuol fare del file di configurazione modificato ${BASENAME}?"
+msgstr "Cosa si vuole fare del file di configurazione modificato ${BASENAME}?"
 
 #. Type: select
 #. Description
 #: ../templates:3002
-#, fuzzy
-#| msgid ""
-#| "A new version of configuration file ${FILE} is available, but the version "
-#| "installed currently has been locally modified."
 msgid ""
 "A new version (${NEW}) of configuration file ${FILE} is available, but the "
 "version installed currently has been locally modified."
 msgstr ""
-"Una nuova versione del file di configurazione ${FILE} è disponibile, ma la "
-"propria versione è stata modificata localmente."
+"Una nuova versione (${NEW}) del file di configurazione ${FILE} è "
+"disponibile, ma la versione attualmente installata è stata modificata "
+"localmente."
 
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
-#| msgid ""
-#| "A new version of configuration file ${FILE} is available, but the version "
-#| "installed currently has been locally modified."
 msgid ""
 "${BASENAME}: A new version (${NEW}) of configuration file ${FILE} is "
 "available, but the version installed currently has been locally modified."
 msgstr ""
-"Una nuova versione del file di configurazione ${FILE} è disponibile, ma la "
-"propria versione è stata modificata localmente."
+"${BASENAME}: Una nuova versione (${NEW}) del file di configurazione ${FILE} "
+"è disponibile, ma la versione attualmente installata è stata modificata "
+"localmente."
 
 #. Type: note
 #. Description
@@ -126,7 +121,7 @@ msgstr "Differenze riga per riga tra le versioni"
 #. Description
 #: ../templates:6001
 msgid "Conflicts found in three-way merge"
-msgstr "Conflitto nell'integrazione delle 3 versioni"
+msgstr "Conflitto nell'integrazione delle tre versioni"
 
 #. Type: error
 #. Description
@@ -135,8 +130,8 @@ msgid ""
 "Conflicts found during three-way merge! Please edit `${dest_file}' and sort "
 "them out manually."
 msgstr ""
-"Si sono verificati conflitti nell'integrazione delle 3 versioni! Modificare "
-"il file «${dest_file}» e risolvere manualmente la situazione."
+"Si sono verificati conflitti nell'integrazione delle tre versioni! "
+"Modificare il file «${dest_file}» e risolvere manualmente la situazione."
 
 #. Type: error
 #. Description
@@ -147,13 +142,3 @@ msgid ""
 msgstr ""
 "Il file «${dest_file}.${ERR_SUFFIX}» contiene il resoconto della tentata "
 "integrazione del file di configurazione."
-
-#~ msgid "do a 3-way merge between available versions (experimental)"
-#~ msgstr "integrare le differenze tra le 3 versioni (sperimentale)"
-
-#~ msgid ""
-#~ "A new version of configuration file ${FILE} is available, but the version "
-#~ "installed currently has been locally modified."
-#~ msgstr ""
-#~ "Una nuova versione del file di configurazione ${FILE} è disponibile, ma "
-#~ "la propria versione è stata modificata localmente."

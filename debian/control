@@ -2,18 +2,28 @@ Source: ucf
 Section: utils
 Priority: standard
 Maintainer: Pexip AS <packaging@pexip.com>
-XSBC-Pexip-Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
-Build-Depends: debhelper-compat (= 13)
-Build-Depends-Indep: po-debconf, gettext
-Standards-Version: 4.6.1
-Vcs-Git: https://salsa.debian.org/srivasta/ucf.git
-Vcs-Browser: https://salsa.debian.org/srivasta/ucf
+XSBC-Pexip-Original-Maintainer: Mark Hindley <leepen@debian.org>
+Build-Depends:
+ debhelper-compat (= 13),
+Build-Depends-Indep:
+ gettext,
+ po-debconf,
+Rules-Requires-Root: no
+Standards-Version: 4.7.2
+Vcs-Git: https://salsa.debian.org/debian/ucf.git
+Vcs-Browser: https://salsa.debian.org/debian/ucf
 XS-Pexip-Upstream: http://deb.debian.org/debian/ trixie
 
 Package: ucf
 Architecture: all
 Multi-Arch: foreign
-Depends: debconf | debconf-2.0, sensible-utils, ${misc:Depends}
+Depends:
+ debconf | debconf-2.0,
+ libtext-wrapi18n-perl,
+ procps,
+ sensible-utils,
+ ${misc:Depends},
+ ${perl:Depends},
 Description: Update Configuration File(s): preserve user changes to config files
  Debian policy mandates that user changes to configuration files must be
  preserved during package upgrades. The easy way to achieve this behavior

@@ -1,0 +1,46 @@
+#!/bin/sh
+
+set -e
+
+if [ "$(uname -s)" = 'GNU' ] ; then
+    echo "Sorry, testsuite requires unshare(1). GNU Hurd patches welcome."
+    exit
+fi
+
+cd "$(dirname "$0")"
+
+if [ $# -eq 0 ] ; then
+    # Run all if none specified
+    set -- $(find . -name test -executable -exec dirname '{}' ';')
+fi
+
+export DEBIAN_FRONTEND=noninteractive
+export UCF_TEST_TARGET=/tmp
+export UCF_TEST_BINDIR="${UCF_TEST_BINDIR=../../}"
+
+trap 'echo "Testsuite: ${i:-0}/$# tests updated"' EXIT
+
+for tdir do
+    echo "Updating $tdir" >&2
+    unshare -rmw "$tdir" sh <<'EOF'
+set -e
+mount -t tmpfs tmpfs /var/cache/debconf
+if [ -d /var/lib/ucf ] ; then
+ mount -t tmpfs tmpfs /var/lib/ucf
+else
+ udir=$(mktemp -d)
+ wdir=$(mktemp -d)
+ trap 'rm -rf $udir $wdir' EXIT
+ mount -t overlay none -o lowerdir=/var/lib,upperdir=$udir,workdir=$wdir /var/lib
+ mkdir -p /var/lib/ucf
+fi
+mount -t tmpfs tmpfs /tmp
+mkdir -p expected
+./test | tee expected/output
+rm -rf expected/target
+cp -r $UCF_TEST_TARGET expected/target
+rm -rf expected/state
+cp -r /var/lib/ucf expected/state
+EOF
+    i=$((i+1))
+done

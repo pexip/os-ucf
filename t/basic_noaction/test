@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+# Test no action.
+
+${UCF_TEST_BINDIR}ucf --no-action input.conf $UCF_TEST_TARGET/input.conf 2>&1
+${UCF_TEST_BINDIR}ucfr --no-action test-package $UCF_TEST_TARGET/input.conf 2>&1

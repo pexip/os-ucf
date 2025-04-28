@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+# Test ucf purge
+
+${UCF_TEST_BINDIR}ucf input.conf $UCF_TEST_TARGET/input.conf 2>&1
+${UCF_TEST_BINDIR}ucf --purge $UCF_TEST_TARGET/input.conf 2>&1

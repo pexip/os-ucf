@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# Test ucf DPKG_FORCE update of user-modified file.
+
+${UCF_TEST_BINDIR}ucf input.conf /tmp/input.conf 2>&1
+echo "# Modified" >> /tmp/input.conf
+DPKG_FORCE=confnew ${UCF_TEST_BINDIR}ucf input2.conf /tmp/input.conf 2>&1

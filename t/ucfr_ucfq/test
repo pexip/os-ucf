@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+# Test ucfr
+
+${UCF_TEST_BINDIR}ucf  ./input.conf /tmp/test.conf 2>/dev/null
+${UCF_TEST_BINDIR}ucfr test-package /tmp/test.conf
+${UCF_TEST_BINDIR}ucfr test-package2 /tmp/test2.conf
+
+# and ucfq
+${UCF_TEST_BINDIR}ucfq test-package
+${UCF_TEST_BINDIR}ucfq /tmp/test2.conf
+
+:> /tmp/test.conf
+
+${UCF_TEST_BINDIR}ucfq /tmp/test.conf
+
+# and ucfr --purge
+! ${UCF_TEST_BINDIR}ucfr --purge another-package /tmp/test2.conf 2>&1
+${UCF_TEST_BINDIR}ucfr --purge test-package2 /tmp/test2.conf
+${UCF_TEST_BINDIR}ucfq test-package2
+${UCF_TEST_BINDIR}ucfq /tmp/test2.conf

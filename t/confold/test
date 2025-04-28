@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# Test UCF_FORCE_CONFFOLD (no overwrite).
+
+touch /tmp/input.conf
+${UCF_TEST_BINDIR}ucf /tmp/input.conf /tmp/input.conf 2>&1
+UCF_FORCE_CONFFOLD=1 ${UCF_TEST_BINDIR}ucf input.conf /tmp/input.conf 2>&1
