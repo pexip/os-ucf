@@ -1,3 +1,9 @@
+ucf (3.0051+pexip25u1) pexip-trixie; urgency=medium
+
+  * Initial trixie build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Tue, 29 Apr 2025 22:59:31 +0100
+
 ucf (3.0051) unstable; urgency=medium
 
   [ Mark Hindley ]
