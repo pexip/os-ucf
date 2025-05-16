@@ -6,7 +6,7 @@ all: build
 
 build: man/ucfq.1
 	sed -i "s#^pversion='.*'\$$#pversion='$(version)'#" ucf ucfr
-	sed -i "s#VERSION[[:space:]]*=.*;\$$#VERSION = $(version);#" ucfq
+	sed -i "s#VERSION[[:space:]]*=.*;\$$#VERSION = \"$(version)\";#" ucfq
 
 man/ucfq.1: ucfq
 	pod2man -r 'Debian' -c 'User Commands' ucfq $@
