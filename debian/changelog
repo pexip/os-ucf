@@ -1,3 +1,13 @@
+ucf (3.0052) unstable; urgency=medium
+
+  [ Mark Hindley ]
+  * d/changelog: add missing retrospective Closes for #1101637.
+
+  [ Nuri KÜÇÜKLER ]
+  * po/tr.po: add Turkish translation (Closes: #1106002).
+
+ -- Mark Hindley <leepen@debian.org>  Mon, 19 May 2025 09:52:12 +0100
+
 ucf (3.0051) unstable; urgency=medium
 
   [ Mark Hindley ]
@@ -5,7 +15,7 @@ ucf (3.0051) unstable; urgency=medium
   * ucfq: fix typo in POD.
 
   [ Carles Pina i Estany ]
-  * Update po-debconf Catalan translation
+  * Update po-debconf Catalan translation (Closes: #1101637)
 
  -- Mark Hindley <leepen@debian.org>  Mon, 31 Mar 2025 10:25:44 +0100
 
